@@ -1,0 +1,33 @@
+<!-- Modal Container -->
+<div id="modal-container" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div id="modal-content" class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b border-gray-200">
+                <h3 id="modal-title" class="text-lg font-semibold text-gray-900">
+                    모달 제목
+                </h3>
+                <button id="modal-close" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div id="modal-body" class="p-6">
+                모달 내용이 여기에 표시됩니다.
+            </div>
+            
+            <!-- Modal Footer -->
+            <div id="modal-footer" class="flex items-center justify-end space-x-3 p-6 border-t border-gray-200">
+                <button id="modal-cancel" class="btn btn-secondary">
+                    취소
+                </button>
+                <button id="modal-confirm" class="btn btn-primary">
+                    확인
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

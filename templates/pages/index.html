@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}GEP - 손해보험중개사 시험 대비{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <!-- Hero Section -->
+    <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+            손해보험중개사 시험 대비
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+            과학적 학습 이론과 기출문제 권위성을 결합한 차세대 학습 플랫폼
+        </p>
+        
+        <!-- Service Level Cards -->
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <!-- Free Service -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title text-green-600">무료 서비스</h3>
+                </div>
+                <div class="space-y-3">
+                    <p class="text-gray-600">기출 회차별 학습</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• 20회~30회 기출문제 순차 학습</li>
+                        <li>• 기본 통계 제공</li>
+                        <li>• 이어풀기 기능</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Basic Service -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title text-blue-600">기본 서비스</h3>
+                </div>
+                <div class="space-y-3">
+                    <p class="text-gray-600">과목별 필터링 학습</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• 12개 과목별 필터링</li>
+                        <li>• 상세 통계 분석</li>
+                        <li>• 틀린문제 학습</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Premium Service -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title text-purple-600">고급 서비스</h3>
+                </div>
+                <div class="space-y-3">
+                    <p class="text-gray-600">종합 학습 경험</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• 객관식 문제 제공</li>
+                        <li>• 미니모의고사</li>
+                        <li>• 고급 통계 분석</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/register" class="btn btn-primary text-lg px-8 py-3">
+                시작하기
+            </a>
+            <a href="/learning" class="btn btn-secondary text-lg px-8 py-3">
+                바로 학습
+            </a>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
+        <div class="card">
+            <h3 class="text-xl font-semibold mb-4">과학적 학습 이론</h3>
+            <p class="text-gray-600">
+                최신 교육학 연구를 바탕으로 한 효율적인 학습 방법을 제공합니다.
+                개인별 학습 패턴 분석을 통해 맞춤형 학습 경험을 제공합니다.
+            </p>
+        </div>
+        
+        <div class="card">
+            <h3 class="text-xl font-semibold mb-4">기출문제 권위성</h3>
+            <p class="text-gray-600">
+                실제 시험에서 출제된 기출문제를 기반으로 한 정확한 학습 자료를 제공합니다.
+                문제의 난이도와 출제 빈도를 분석하여 효율적인 학습을 지원합니다.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// 페이지 로드 시 사용자 상태 확인
+document.addEventListener('DOMContentLoaded', function() {
+    const userPhone = localStorage.getItem('user_phone');
+    const serviceLevel = localStorage.getItem('service_level') || 'free';
+    
+    if (userPhone) {
+        // 로그인된 사용자
+        document.getElementById('user-phone').textContent = userPhone;
+        document.getElementById('logout-btn').classList.remove('hidden');
+        document.getElementById('service-level').textContent = 
+            serviceLevel === 'free' ? '무료' : 
+            serviceLevel === 'basic' ? '기본' : '고급';
+    }
+});
+</script>
+{% endblock %}
