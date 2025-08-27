@@ -74,6 +74,22 @@ def static_data(filename):
     """정적 데이터 파일 서빙"""
     return send_from_directory('static/data', filename)
 
+# QManager 라우팅
+@app.route('/admin/qmanager')
+def qmanager():
+    """QManager 페이지"""
+    return send_from_directory('qmanager', 'index.html')
+
+@app.route('/admin/qmanager/<path:filename>')
+def qmanager_static(filename):
+    """QManager 정적 파일 서빙"""
+    return send_from_directory('qmanager', filename)
+
+@app.route('/admin/qmanager/js/<path:filename>')
+def qmanager_js(filename):
+    """QManager JavaScript 파일 서빙"""
+    return send_from_directory('qmanager/js', filename)
+
 # QGENERATOR API 엔드포인트
 @app.route('/api/save-questions', methods=['POST'])
 def save_questions():

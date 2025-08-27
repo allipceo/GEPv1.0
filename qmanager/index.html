@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QManager - 진위형 문제 관리 시스템</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/admin/qmanager/styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- 헤더 -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-gray-900">🎯 QManager</h1>
+                    <span class="ml-2 text-sm text-gray-500">진위형 문제 관리 시스템</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-sm text-gray-600">
+                        <span id="totalOriginalCount">기출문제: 0개</span> | 
+                        <span id="totalDerivedCount">파생문제: 0개</span>
+                    </div>
+                    <a href="/" class="text-blue-600 hover:text-blue-800">← GEP 대문으로</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨테이너 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- 좌측: 기출문제 스크롤 -->
+            <div class="bg-white rounded-lg shadow-sm border">
+                <div class="p-4 border-b">
+                    <h2 class="text-lg font-semibold text-gray-900 mb-4">📚 기출문제 목록</h2>
+                    
+                    <!-- 검색 및 필터링 -->
+                    <div class="space-y-3">
+                        <div class="grid grid-cols-2 gap-3">
+                            <select id="roundFilter" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                <option value="">전체 회차</option>
+                            </select>
+                            <select id="layerFilter" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                <option value="">전체 레이어</option>
+                                <option value="관계법령">관계법령</option>
+                                <option value="보험업법">보험업법</option>
+                                <option value="보험업감독규정">보험업감독규정</option>
+                            </select>
+                        </div>
+                        <div class="flex space-x-2">
+                            <input type="text" id="searchInput" placeholder="문제 내용 검색..." 
+                                   class="flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            <button id="searchBtn" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                검색
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 기출문제 목록 -->
+                <div id="originalQuestionList" class="h-96 overflow-y-auto p-4 space-y-2">
+                    <!-- 기출문제들이 여기에 동적으로 로드됩니다 -->
+                </div>
+            </div>
+
+            <!-- 우측: 파생문제 관리 -->
+            <div class="bg-white rounded-lg shadow-sm border">
+                <div class="p-4 border-b">
+                    <h2 class="text-lg font-semibold text-gray-900 mb-4">✏️ 파생문제 관리</h2>
+                    
+                    <!-- 선택된 기출문제 정보 -->
+                    <div id="selectedOriginalInfo" class="bg-blue-50 p-3 rounded-md mb-4">
+                        <p class="text-sm text-gray-600">기출문제를 선택해주세요</p>
+                    </div>
+                    
+                    <!-- 액션 버튼들 -->
+                    <div class="flex space-x-2 mb-4">
+                        <button id="addNewBtn" class="px-3 py-1 bg-green-600 text-white text-sm rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                            + 새 문제 추가
+                        </button>
+                        <button id="selectAllBtn" class="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                            전체 선택
+                        </button>
+                        <button id="deselectAllBtn" class="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                            전체 해제
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 파생문제 목록 -->
+                <div id="derivedQuestionsContainer" class="h-96 overflow-y-auto p-4">
+                    <div class="text-center text-gray-500 py-8">
+                        <p>기출문제를 선택하면 파생문제들이 여기에 표시됩니다</p>
+                    </div>
+                </div>
+                
+                <!-- 하단 액션 버튼들 -->
+                <div class="p-4 border-t bg-gray-50">
+                    <div class="flex justify-between items-center">
+                        <div class="text-sm text-gray-600">
+                            <span id="selectedCount">선택됨: 0개</span> | 
+                            <span id="modifiedCount">수정됨: 0개</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button id="saveBtn" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                💾 저장
+                            </button>
+                            <button id="resetBtn" class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                                🔄 초기화
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 알림 메시지 -->
+    <div id="notification" class="fixed top-4 right-4 z-50 hidden">
+        <div class="bg-white border rounded-lg shadow-lg p-4 max-w-sm">
+            <div class="flex items-center">
+                <div id="notificationIcon" class="flex-shrink-0"></div>
+                <div class="ml-3">
+                    <p id="notificationMessage" class="text-sm font-medium text-gray-900"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 로딩 스피너 -->
+    <div id="loadingSpinner" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6">
+            <div class="flex items-center space-x-3">
+                <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+                <span class="text-gray-700">데이터를 로딩 중입니다...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 스크립트 -->
+    <script src="/admin/qmanager/js/qmanager.js"></script>
+    <script src="/admin/qmanager/js/data-handler.js"></script>
+    <script src="/admin/qmanager/js/ui-controller.js"></script>
+</body>
+</html>
