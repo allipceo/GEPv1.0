@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통계 대시보드 - GEP</title>
+    <meta name="description" content="학습 통계 및 성과 분석">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GEP 스타일시트 -->
+    <link rel="stylesheet" href="../css/main.css">
+    
+    <!-- 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- 네비게이션은 JavaScript로 동적 생성 -->
+    
+    <!-- 메인 콘텐츠 -->
+    <main id="main-content" class="min-h-screen">
+        <!-- 헤더 섹션 -->
+        <section class="bg-white shadow-sm border-b border-gray-200">
+            <div class="gep-container">
+                <div class="py-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="gep-heading-2 text-gray-900">통계 대시보드</h1>
+                            <p class="gep-text-base text-gray-600 mt-2">학습 진행 상황과 성과를 한눈에 확인하세요</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <button id="refresh-btn" class="gep-btn-outline gep-btn-sm">
+                                <i class="fas fa-sync-alt mr-2"></i>
+                                새로고침
+                            </button>
+                            <button id="export-btn" class="gep-btn-primary gep-btn-sm">
+                                <i class="fas fa-download mr-2"></i>
+                                내보내기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 통계 카드 섹션 -->
+        <section class="py-8">
+            <div class="gep-container">
+                <div class="gep-grid-cols-4">
+                    <!-- 총 문제 수 -->
+                    <div class="gep-stat-card">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-question-circle text-xl text-blue-600"></i>
+                            </div>
+                            <div>
+                                <p class="gep-stat-label">총 문제 수</p>
+                                <p class="gep-stat-number" id="total-questions">1,440</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 풀이한 문제 수 -->
+                    <div class="gep-stat-card">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-check-circle text-xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="gep-stat-label">풀이한 문제</p>
+                                <p class="gep-stat-number" id="answered-questions">0</p>
+                                <p class="gep-stat-change positive" id="answered-change">+0%</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 정답률 -->
+                    <div class="gep-stat-card">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-xl text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="gep-stat-label">정답률</p>
+                                <p class="gep-stat-number" id="accuracy-rate">0%</p>
+                                <p class="gep-stat-change positive" id="accuracy-change">+0%</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 학습 시간 -->
+                    <div class="gep-stat-card">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-xl text-orange-600"></i>
+                            </div>
+                            <div>
+                                <p class="gep-stat-label">총 학습 시간</p>
+                                <p class="gep-stat-number" id="total-time">0시간</p>
+                                <p class="gep-stat-change positive" id="time-change">+0시간</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 차트 섹션 -->
+        <section class="py-8">
+            <div class="gep-container">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- 정답률 변화 차트 -->
+                    <div class="gep-chart-container">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="gep-heading-4">정답률 변화</h3>
+                            <div class="flex items-center space-x-2">
+                                <select id="accuracy-period" class="text-sm border border-gray-300 rounded px-2 py-1">
+                                    <option value="7">최근 7일</option>
+                                    <option value="30">최근 30일</option>
+                                    <option value="90">최근 90일</option>
+                                </select>
+                            </div>
+                        </div>
+                        <canvas id="accuracy-chart" width="400" height="200"></canvas>
+                    </div>
+                    
+                    <!-- 카테고리별 성과 차트 -->
+                    <div class="gep-chart-container">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="gep-heading-4">카테고리별 성과</h3>
+                            <div class="flex items-center space-x-2">
+                                <button id="category-view-btn" class="text-sm text-blue-600 hover:text-blue-700">
+                                    상세보기
+                                </button>
+                            </div>
+                        </div>
+                        <canvas id="category-chart" width="400" height="200"></canvas>
+                    </div>
+                    
+                    <!-- 학습 시간 분포 차트 -->
+                    <div class="gep-chart-container">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="gep-heading-4">학습 시간 분포</h3>
+                            <div class="flex items-center space-x-2">
+                                <select id="time-period" class="text-sm border border-gray-300 rounded px-2 py-1">
+                                    <option value="day">일별</option>
+                                    <option value="week">주별</option>
+                                    <option value="month">월별</option>
+                                </select>
+                            </div>
+                        </div>
+                        <canvas id="time-chart" width="400" height="200"></canvas>
+                    </div>
+                    
+                    <!-- 월별 성과 히트맵 -->
+                    <div class="gep-chart-container">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="gep-heading-4">월별 성과 히트맵</h3>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-sm text-gray-500">2025년</span>
+                            </div>
+                        </div>
+                        <div id="heatmap-container" class="h-48 flex items-center justify-center text-gray-500">
+                            히트맵 차트가 여기에 표시됩니다
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 상세 통계 섹션 -->
+        <section class="py-8">
+            <div class="gep-container">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- 최근 활동 로그 -->
+                    <div class="lg:col-span-2">
+                        <div class="gep-card">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h3 class="gep-heading-4">최근 활동</h3>
+                                    <button id="view-all-activities" class="text-sm text-blue-600 hover:text-blue-700">
+                                        전체보기
+                                    </button>
+                                </div>
+                                <div id="activity-log" class="space-y-4">
+                                    <!-- 활동 로그는 JavaScript로 동적 생성 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 학습 목표 설정 -->
+                    <div>
+                        <div class="gep-card">
+                            <div class="p-6">
+                                <h3 class="gep-heading-4 mb-6">학습 목표</h3>
+                                
+                                <!-- 일일 목표 -->
+                                <div class="mb-6">
+                                    <h4 class="font-medium text-gray-900 mb-3">일일 목표</h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-gray-600">문제 풀이</span>
+                                            <span class="text-sm font-medium" id="daily-goal-questions">20문제</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div id="daily-goal-progress" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                        </div>
+                                        <div class="flex items-center justify-between text-xs text-gray-500">
+                                            <span id="daily-progress-text">0/20 완료</span>
+                                            <span id="daily-progress-percent">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 주간 목표 -->
+                                <div class="mb-6">
+                                    <h4 class="font-medium text-gray-900 mb-3">주간 목표</h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-gray-600">학습 시간</span>
+                                            <span class="text-sm font-medium" id="weekly-goal-time">10시간</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div id="weekly-goal-progress" class="bg-green-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                        </div>
+                                        <div class="flex items-center justify-between text-xs text-gray-500">
+                                            <span id="weekly-progress-text">0/10시간 완료</span>
+                                            <span id="weekly-progress-percent">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 목표 설정 버튼 -->
+                                <button id="set-goals-btn" class="w-full gep-btn-outline gep-btn-sm">
+                                    <i class="fas fa-cog mr-2"></i>
+                                    목표 설정
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 빠른 액션 -->
+                        <div class="gep-card mt-6">
+                            <div class="p-6">
+                                <h3 class="gep-heading-4 mb-4">빠른 액션</h3>
+                                <div class="space-y-3">
+                                    <button class="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-play-circle text-blue-600 mr-3"></i>
+                                            <span class="text-sm font-medium">문제 풀이 시작</span>
+                                        </div>
+                                    </button>
+                                    <button class="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-redo text-green-600 mr-3"></i>
+                                            <span class="text-sm font-medium">틀린 문제 복습</span>
+                                        </div>
+                                    </button>
+                                    <button class="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-chart-bar text-purple-600 mr-3"></i>
+                                            <span class="text-sm font-medium">상세 분석 보기</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 성취 배지 섹션 -->
+        <section class="py-8">
+            <div class="gep-container">
+                <div class="text-center mb-8">
+                    <h2 class="gep-heading-2">성취 배지</h2>
+                    <p class="gep-text-base text-gray-600">학습 과정에서 획득한 성취를 확인하세요</p>
+                </div>
+                
+                <div class="gep-grid-cols-4" id="badges-container">
+                    <!-- 배지는 JavaScript로 동적 생성 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 목표 설정 모달 -->
+        <section id="goals-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold">학습 목표 설정</h3>
+                    <button id="close-goals-modal" class="p-2 text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="space-y-6">
+                    <!-- 일일 목표 설정 -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">일일 문제 풀이 목표</label>
+                        <input type="number" id="daily-goal-input" class="gep-input" placeholder="20" min="1" max="100">
+                        <p class="text-xs text-gray-500 mt-1">하루에 풀 문제 수를 설정하세요</p>
+                    </div>
+                    
+                    <!-- 주간 목표 설정 -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">주간 학습 시간 목표</label>
+                        <input type="number" id="weekly-goal-input" class="gep-input" placeholder="10" min="1" max="50">
+                        <p class="text-xs text-gray-500 mt-1">일주일에 학습할 시간을 설정하세요</p>
+                    </div>
+                    
+                    <!-- 목표 알림 설정 -->
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" id="goal-notifications" class="mr-2" checked>
+                            <span class="text-sm text-gray-700">목표 달성 알림 받기</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-3 mt-6">
+                    <button id="save-goals-btn" class="gep-btn-primary flex-1">저장</button>
+                    <button id="cancel-goals-btn" class="gep-btn-outline flex-1">취소</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../js/core/data-manager.js"></script>
+    <script src="../js/ui/components.js"></script>
+    <script src="../js/ui/navigation.js"></script>
+    <script src="../js/ui/dashboard.js"></script>
+</body>
+</html>
+

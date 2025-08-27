@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEP - General Exam Platform | 보험 자격시험 준비 플랫폼</title>
+    <meta name="description" content="보험중개사, 보험심사역, 손해사정사 자격시험을 위한 종합 학습 플랫폼">
+    <meta name="keywords" content="보험중개사, 보험심사역, 손해사정사, 자격시험, 문제풀이, 학습플랫폼">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GEP 스타일시트 -->
+    <link rel="stylesheet" href="../css/main.css">
+    
+    <!-- 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- 네비게이션은 JavaScript로 동적 생성 -->
+    
+    <!-- 메인 콘텐츠 -->
+    <main>
+        <!-- 히어로 섹션 -->
+        <section class="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white overflow-hidden">
+            <!-- 배경 패턴 -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            </div>
+            
+            <div class="gep-container relative z-10">
+                <div class="py-20 lg:py-32">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <!-- 텍스트 콘텐츠 -->
+                        <div class="text-center lg:text-left">
+                            <h1 class="gep-heading-1 mb-6 text-white">
+                                보험 자격시험 준비의<br>
+                                <span class="text-blue-200">새로운 기준</span>
+                            </h1>
+                            <p class="gep-text-large mb-8 text-blue-100 max-w-lg mx-auto lg:mx-0">
+                                보험중개사, 보험심사역, 손해사정사 자격시험을 위한 
+                                종합 학습 플랫폼으로 합격을 보장합니다.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                                <button class="gep-btn-primary gep-btn-lg" onclick="startLearning()">
+                                    <i class="fas fa-play mr-2"></i>
+                                    학습 시작하기
+                                </button>
+                                <button class="gep-btn-outline gep-btn-lg text-white border-white hover:bg-white hover:text-blue-600" onclick="showDemo()">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    데모 보기
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 이미지/일러스트 -->
+                        <div class="hidden lg:block">
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-blue-500 rounded-2xl transform rotate-6"></div>
+                                <div class="relative bg-white rounded-2xl p-8 shadow-2xl">
+                                    <div class="text-center">
+                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <i class="fas fa-graduation-cap text-2xl text-blue-600"></i>
+                                        </div>
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">1,440개 문제</h3>
+                                        <p class="text-gray-600">체계적으로 분류된 기출문제</p>
+                                    </div>
+                                    <div class="mt-6 grid grid-cols-3 gap-4">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-blue-600">95%</div>
+                                            <div class="text-sm text-gray-500">합격률</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-green-600">24/7</div>
+                                            <div class="text-sm text-gray-500">학습 가능</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-purple-600">AI</div>
+                                            <div class="text-sm text-gray-500">맞춤 학습</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 통계 섹션 -->
+        <section class="py-16 bg-white">
+            <div class="gep-container">
+                <div class="text-center mb-12">
+                    <h2 class="gep-heading-2 mb-4">신뢰할 수 있는 학습 플랫폼</h2>
+                    <p class="gep-text-large text-gray-600 max-w-2xl mx-auto">
+                        수많은 수험생들이 GEP와 함께 합격의 꿈을 이루었습니다
+                    </p>
+                </div>
+                
+                <div class="gep-grid-cols-4">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-600 mb-2" data-counter="15000">0</div>
+                        <div class="text-gray-600">등록 수험생</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-green-600 mb-2" data-counter="1440">0</div>
+                        <div class="text-gray-600">기출문제</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-purple-600 mb-2" data-counter="95">0</div>
+                        <div class="text-gray-600">평균 합격률 (%)</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-orange-600 mb-2" data-counter="24">0</div>
+                        <div class="text-gray-600">시간 학습 가능</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 서비스 소개 섹션 -->
+        <section class="py-16 bg-gray-50">
+            <div class="gep-container">
+                <div class="text-center mb-12">
+                    <h2 class="gep-heading-2 mb-4">왜 GEP인가요?</h2>
+                    <p class="gep-text-large text-gray-600 max-w-2xl mx-auto">
+                        체계적인 학습 시스템과 AI 기반 맞춤형 분석으로 
+                        효율적인 시험 준비를 도와드립니다
+                    </p>
+                </div>
+                
+                <div class="gep-grid-cols-3">
+                    <!-- 카드 1: 체계적 학습 -->
+                    <div class="gep-card gep-card-hover p-8 text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-layer-group text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="gep-heading-4 mb-4">체계적 학습 시스템</h3>
+                        <p class="gep-text-base text-gray-600">
+                            시험 유형별, 난이도별로 체계적으로 분류된 문제로 
+                            단계별 학습이 가능합니다.
+                        </p>
+                    </div>
+                    
+                    <!-- 카드 2: AI 맞춤 분석 -->
+                    <div class="gep-card gep-card-hover p-8 text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-brain text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="gep-heading-4 mb-4">AI 맞춤 분석</h3>
+                        <p class="gep-text-base text-gray-600">
+                            개인별 학습 패턴을 분석하여 취약점을 파악하고 
+                            맞춤형 학습 계획을 제시합니다.
+                        </p>
+                    </div>
+                    
+                    <!-- 카드 3: 실시간 통계 -->
+                    <div class="gep-card gep-card-hover p-8 text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-chart-line text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="gep-heading-4 mb-4">실시간 통계</h3>
+                        <p class="gep-text-base text-gray-600">
+                            학습 진행 상황과 성과를 실시간으로 확인하여 
+                            목표 달성도를 체크할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 시험 유형 소개 섹션 -->
+        <section class="py-16 bg-white">
+            <div class="gep-container">
+                <div class="text-center mb-12">
+                    <h2 class="gep-heading-2 mb-4">지원하는 시험 유형</h2>
+                    <p class="gep-text-large text-gray-600 max-w-2xl mx-auto">
+                        보험업계의 주요 자격시험을 모두 지원합니다
+                    </p>
+                </div>
+                
+                <div class="gep-grid-cols-3">
+                    <!-- 보험중개사 -->
+                    <div class="gep-card gep-card-hover p-8 text-center group hover:transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-20 h-20 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-violet-200 transition-colors">
+                            <i class="fas fa-handshake text-3xl text-violet-600"></i>
+                        </div>
+                        <h3 class="gep-heading-4 mb-4 text-violet-600">보험중개사</h3>
+                        <p class="gep-text-base text-gray-600 mb-6">
+                            보험계약의 체결을 중개하는 전문가 자격시험
+                        </p>
+                        <ul class="text-left text-sm text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                생명보험 중개
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                손해보험 중개
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                제3보험 중개
+                            </li>
+                        </ul>
+                        <button class="gep-btn-primary w-full" onclick="navigateToExam('broker')">
+                            학습 시작
+                        </button>
+                    </div>
+                    
+                    <!-- 보험심사역 -->
+                    <div class="gep-card gep-card-hover p-8 text-center group hover:transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-200 transition-colors">
+                            <i class="fas fa-search text-3xl text-orange-600"></i>
+                        </div>
+                        <h3 class="gep-heading-4 mb-4 text-orange-600">보험심사역</h3>
+                        <p class="gep-text-base text-gray-600 mb-6">
+                            보험금 지급 여부를 심사하는 전문가 자격시험
+                        </p>
+                        <ul class="text-left text-sm text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                생명보험 심사
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                손해보험 심사
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                제3보험 심사
+                            </li>
+                        </ul>
+                        <button class="gep-btn-primary w-full" onclick="navigateToExam('assessor')">
+                            학습 시작
+                        </button>
+                    </div>
+                    
+                    <!-- 손해사정사 -->
+                    <div class="gep-card gep-card-hover p-8 text-center group hover:transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-pink-200 transition-colors">
+                            <i class="fas fa-calculator text-3xl text-pink-600"></i>
+                        </div>
+                        <h3 class="gep-heading-4 mb-4 text-pink-600">손해사정사</h3>
+                        <p class="gep-text-base text-gray-600 mb-6">
+                            보험사고의 손해를 조사·평가하는 전문가 자격시험
+                        </p>
+                        <ul class="text-left text-sm text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                자동차 손해사정
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                화재 손해사정
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                기타 손해사정
+                            </li>
+                        </ul>
+                        <button class="gep-btn-primary w-full" onclick="navigateToExam('adjuster')">
+                            학습 시작
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 학습 과정 소개 섹션 -->
+        <section class="py-16 bg-gray-50">
+            <div class="gep-container">
+                <div class="text-center mb-12">
+                    <h2 class="gep-heading-2 mb-4">효과적인 학습 과정</h2>
+                    <p class="gep-text-large text-gray-600 max-w-2xl mx-auto">
+                        4단계 학습 시스템으로 체계적으로 시험을 준비하세요
+                    </p>
+                </div>
+                
+                <div class="relative">
+                    <!-- 연결선 -->
+                    <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-300 transform -translate-y-1/2"></div>
+                    
+                    <div class="gep-grid-cols-4">
+                        <!-- 단계 1 -->
+                        <div class="relative text-center">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl relative z-10">
+                                1
+                            </div>
+                            <h3 class="gep-heading-5 mb-2">기본 학습</h3>
+                            <p class="gep-text-small text-gray-600">
+                                과목별 기본 개념 학습
+                            </p>
+                        </div>
+                        
+                        <!-- 단계 2 -->
+                        <div class="relative text-center">
+                            <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl relative z-10">
+                                2
+                            </div>
+                            <h3 class="gep-heading-5 mb-2">문제 풀이</h3>
+                            <p class="gep-text-small text-gray-600">
+                                기출문제 반복 연습
+                            </p>
+                        </div>
+                        
+                        <!-- 단계 3 -->
+                        <div class="relative text-center">
+                            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl relative z-10">
+                                3
+                            </div>
+                            <h3 class="gep-heading-5 mb-2">취약점 분석</h3>
+                            <p class="gep-text-small text-gray-600">
+                                AI 기반 맞춤 분석
+                            </p>
+                        </div>
+                        
+                        <!-- 단계 4 -->
+                        <div class="relative text-center">
+                            <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl relative z-10">
+                                4
+                            </div>
+                            <h3 class="gep-heading-5 mb-2">실전 모의고사</h3>
+                            <p class="gep-text-small text-gray-600">
+                                실제 시험 환경 연습
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA 섹션 -->
+        <section class="py-16 bg-blue-600 text-white">
+            <div class="gep-container text-center">
+                <h2 class="gep-heading-2 mb-4">지금 바로 시작하세요</h2>
+                <p class="gep-text-large mb-8 text-blue-100 max-w-2xl mx-auto">
+                    무료로 가입하고 1,440개의 기출문제로 합격을 준비하세요
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="gep-btn-primary gep-btn-lg bg-white text-blue-600 hover:bg-gray-100" onclick="startLearning()">
+                        <i class="fas fa-rocket mr-2"></i>
+                        무료로 시작하기
+                    </button>
+                    <button class="gep-btn-outline gep-btn-lg text-white border-white hover:bg-white hover:text-blue-600" onclick="showDemo()">
+                        <i class="fas fa-play mr-2"></i>
+                        데모 보기
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="gep-container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- 회사 정보 -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">G</span>
+                        </div>
+                        <span class="text-xl font-bold">GEP</span>
+                    </div>
+                    <p class="text-gray-300 mb-4 max-w-md">
+                        보험 자격시험 준비를 위한 종합 학습 플랫폼입니다. 
+                        체계적인 학습 시스템으로 합격을 보장합니다.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 서비스 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">서비스</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">보험중개사</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">보험심사역</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">손해사정사</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">모의고사</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 고객지원 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">고객지원</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">고객센터</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">자주묻는질문</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">1:1 문의</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">공지사항</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 my-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2025 GEP. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">이용약관</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">개인정보처리방침</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">쿠키정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/core/data-manager.js"></script>
+    <script src="../js/ui/components.js"></script>
+    <script src="../js/ui/navigation.js"></script>
+    <script src="../js/ui/landing.js"></script>
+</body>
+</html>
+

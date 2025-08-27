@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QGENERATOR - 객관식 문제 생성 시스템</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/qgenerator/styles.css">
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- 헤더 -->
+        <header class="bg-blue-600 text-white shadow-lg">
+            <div class="container mx-auto px-6 py-4">
+                <h1 class="text-2xl font-bold">🎯 QGENERATOR</h1>
+                <p class="text-blue-100">객관식 문제 생성 시스템</p>
+            </div>
+        </header>
+
+        <!-- 메인 컨테이너 -->
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- 좌측 패널: 기출문제 브라우저 -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <div class="p-6 border-b border-gray-200">
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">📋 기출문제 목록</h2>
+                        
+                        <!-- 검색 및 필터 -->
+                        <div class="space-y-4 mb-6">
+                            <div class="flex gap-2">
+                                <input type="text" id="searchInput" placeholder="QCODE 또는 키워드 검색..." 
+                                       class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <button id="searchBtn" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                                    검색
+                                </button>
+                            </div>
+                            
+                            <div class="flex gap-4">
+                                <select id="roundFilter" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="">전체 회차</option>
+                                    <option value="20">20회</option>
+                                    <option value="21">21회</option>
+                                    <option value="22">22회</option>
+                                    <option value="23">23회</option>
+                                    <option value="24">24회</option>
+                                    <option value="25">25회</option>
+                                    <option value="26">26회</option>
+                                    <option value="27">27회</option>
+                                    <option value="28">28회</option>
+                                    <option value="29">29회</option>
+                                    <option value="30">30회</option>
+                                </select>
+                                
+                                <select id="layerFilter" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="">전체 LAYER</option>
+                                    <option value="관계법령">관계법령</option>
+                                    <option value="손보1부">손보1부</option>
+                                    <option value="손보2부">손보2부</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- 문제 목록 -->
+                        <div id="questionList" class="space-y-2 max-h-96 overflow-y-auto">
+                            <!-- 문제 목록이 여기에 동적으로 로드됩니다 -->
+                        </div>
+                    </div>
+                </div>
+
+                                            <!-- 우측 패널: 진위형 문제 생성기 -->
+                    <div class="bg-white rounded-lg shadow-md">
+                        <div class="p-6">
+                            <h2 class="text-xl font-semibold text-gray-800 mb-4">🎯 진위형 문제 생성</h2>
+                            
+                            <!-- 선택된 원본 문제 정보 (상단) -->
+                            <div id="selectedOriginalInfo" class="mb-6 p-4 bg-blue-50 rounded-lg hidden">
+                                <h3 class="font-semibold text-blue-800 mb-2">📋 원본 문제 정보</h3>
+                                <div id="originalQuestionDetails" class="text-sm text-blue-700"></div>
+                            </div>
+                            
+                            <!-- 진위형 문제 생성 공간 (하단) -->
+                            <div id="questionGeneratorForm" class="space-y-6 hidden">
+                                <div class="border-t-2 border-blue-200 pt-4">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-4">✏️ 새로운 진위형 문제 생성</h3>
+                                    
+                                    <!-- 전체 선택/해제 버튼 -->
+                                    <div class="mb-4 flex gap-2">
+                                        <button id="selectAllBtn" class="px-3 py-1 bg-green-600 text-white text-sm rounded hover:bg-green-700">
+                                            전체 선택
+                                        </button>
+                                        <button id="deselectAllBtn" class="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700">
+                                            전체 해제
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- 8개 문제 생성 공간 (스크롤 가능) -->
+                                    <div class="max-h-96 overflow-y-auto space-y-4 border rounded-lg p-4">
+                                        <!-- 문제 1 -->
+                                        <div class="question-form border rounded-lg p-4 bg-gray-50">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h4 class="font-semibold text-gray-700">문제 1</h4>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="question-checkbox mr-2" data-index="0">
+                                                    <span class="text-sm font-medium text-gray-700">업로드 대상으로 선택</span>
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">문제</label>
+                                                <textarea class="question-input w-full p-2 border rounded-md text-sm" rows="2" placeholder="진위형 문제를 입력하세요..."></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">정답</label>
+                                                <div class="flex gap-4">
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-0" value="O" class="mr-2">
+                                                        <span class="text-sm">O (맞음)</span>
+                                                    </label>
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-0" value="X" class="mr-2">
+                                                        <span class="text-sm">X (틀림)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 문제 2 -->
+                                        <div class="question-form border rounded-lg p-4 bg-gray-50">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h4 class="font-semibold text-gray-700">문제 2</h4>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="question-checkbox mr-2" data-index="1">
+                                                    <span class="text-sm font-medium text-gray-700">업로드 대상으로 선택</span>
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">문제</label>
+                                                <textarea class="question-input w-full p-2 border rounded-md text-sm" rows="2" placeholder="진위형 문제를 입력하세요..."></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">정답</label>
+                                                <div class="flex gap-4">
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-1" value="O" class="mr-2">
+                                                        <span class="text-sm">O (맞음)</span>
+                                                    </label>
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-1" value="X" class="mr-2">
+                                                        <span class="text-sm">X (틀림)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 문제 3 -->
+                                        <div class="question-form border rounded-lg p-4 bg-gray-50">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h4 class="font-semibold text-gray-700">문제 3</h4>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="question-checkbox mr-2" data-index="2">
+                                                    <span class="text-sm font-medium text-gray-700">업로드 대상으로 선택</span>
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">문제</label>
+                                                <textarea class="question-input w-full p-2 border rounded-md text-sm" rows="2" placeholder="진위형 문제를 입력하세요..."></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">정답</label>
+                                                <div class="flex gap-4">
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-2" value="O" class="mr-2">
+                                                        <span class="text-sm">O (맞음)</span>
+                                                    </label>
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-2" value="X" class="mr-2">
+                                                        <span class="text-sm">X (틀림)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 문제 4 -->
+                                        <div class="question-form border rounded-lg p-4 bg-gray-50">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h4 class="font-semibold text-gray-700">문제 4</h4>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="question-checkbox mr-2" data-index="3">
+                                                    <span class="text-sm font-medium text-gray-700">업로드 대상으로 선택</span>
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">문제</label>
+                                                <textarea class="question-input w-full p-2 border rounded-md text-sm" rows="2" placeholder="진위형 문제를 입력하세요..."></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">정답</label>
+                                                <div class="flex gap-4">
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-3" value="O" class="mr-2">
+                                                        <span class="text-sm">O (맞음)</span>
+                                                    </label>
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-3" value="X" class="mr-2">
+                                                        <span class="text-sm">X (틀림)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 문제 5 -->
+                                        <div class="question-form border rounded-lg p-4 bg-gray-50">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h4 class="font-semibold text-gray-700">문제 5</h4>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="question-checkbox mr-2" data-index="4">
+                                                    <span class="text-sm font-medium text-gray-700">업로드 대상으로 선택</span>
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">문제</label>
+                                                <textarea class="question-input w-full p-2 border rounded-md text-sm" rows="2" placeholder="진위형 문제를 입력하세요..."></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">정답</label>
+                                                <div class="flex gap-4">
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-4" value="O" class="mr-2">
+                                                        <span class="text-sm">O (맞음)</span>
+                                                    </label>
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-4" value="X" class="mr-2">
+                                                        <span class="text-sm">X (틀림)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 문제 6 -->
+                                        <div class="question-form border rounded-lg p-4 bg-gray-50">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h4 class="font-semibold text-gray-700">문제 6</h4>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="question-checkbox mr-2" data-index="5">
+                                                    <span class="text-sm font-medium text-gray-700">업로드 대상으로 선택</span>
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">문제</label>
+                                                <textarea class="question-input w-full p-2 border rounded-md text-sm" rows="2" placeholder="진위형 문제를 입력하세요..."></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">정답</label>
+                                                <div class="flex gap-4">
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-5" value="O" class="mr-2">
+                                                        <span class="text-sm">O (맞음)</span>
+                                                    </label>
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-5" value="X" class="mr-2">
+                                                        <span class="text-sm">X (틀림)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 문제 7 -->
+                                        <div class="question-form border rounded-lg p-4 bg-gray-50">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h4 class="font-semibold text-gray-700">문제 7</h4>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="question-checkbox mr-2" data-index="6">
+                                                    <span class="text-sm font-medium text-gray-700">업로드 대상으로 선택</span>
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">문제</label>
+                                                <textarea class="question-input w-full p-2 border rounded-md text-sm" rows="2" placeholder="진위형 문제를 입력하세요..."></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">정답</label>
+                                                <div class="flex gap-4">
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-6" value="O" class="mr-2">
+                                                        <span class="text-sm">O (맞음)</span>
+                                                    </label>
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-6" value="X" class="mr-2">
+                                                        <span class="text-sm">X (틀림)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 문제 8 -->
+                                        <div class="question-form border rounded-lg p-4 bg-gray-50">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h4 class="font-semibold text-gray-700">문제 8</h4>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="question-checkbox mr-2" data-index="7">
+                                                    <span class="text-sm font-medium text-gray-700">업로드 대상으로 선택</span>
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">문제</label>
+                                                <textarea class="question-input w-full p-2 border rounded-md text-sm" rows="2" placeholder="진위형 문제를 입력하세요..."></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">정답</label>
+                                                <div class="flex gap-4">
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-7" value="O" class="mr-2">
+                                                        <span class="text-sm">O (맞음)</span>
+                                                    </label>
+                                                    <label class="flex items-center">
+                                                        <input type="radio" name="answer-7" value="X" class="mr-2">
+                                                        <span class="text-sm">X (틀림)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 버튼 그룹 -->
+                                    <div class="flex gap-3 pt-4">
+                                        <button id="uploadBtn" class="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed">
+                                            📤 업로드
+                                        </button>
+                                        <button id="resetBtn" class="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700">
+                                            🔄 초기화
+                                        </button>
+                                        <button id="saveBtn" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                                            💾 저장
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- 생성된 문제 목록 -->
+                                    <div id="generatedQuestionsList" class="mt-6 hidden">
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-4">📝 생성된 문제 목록</h3>
+                                        <div id="generatedQuestions" class="space-y-3">
+                                            <!-- 생성된 문제들이 여기에 표시됩니다 -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 상태 표시 -->
+            <div id="statusBar" class="mt-8 p-4 bg-gray-100 rounded-lg">
+                <div class="flex items-center justify-between">
+                    <div class="text-sm text-gray-600">
+                        <span id="questionCount">총 0개 문제</span> | 
+                        <span id="selectedCount">선택됨 0개</span> | 
+                        <span id="generatedCount">생성됨 0개</span>
+                    </div>
+                    <div id="statusMessage" class="text-sm text-gray-600">
+                        시스템 준비 완료
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 스크립트 -->
+    <script src="/qgenerator/js/qgenerator.js"></script>
+    <script src="/qgenerator/test_questions.js"></script>
+    <script src="/qgenerator/simulation_data.js"></script>
+    <script src="/qgenerator/debug.js"></script>
+</body>
+</html>

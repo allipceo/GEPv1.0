@@ -1,228 +1,583 @@
-/* GEP Main Styles */
+/**
+ * GEP 메인 스타일시트
+ * Tailwind CSS 커스터마이징, 공통 색상 팔레트, 타이포그래피 시스템
+ */
 
-/* Custom Variables */
+/* ===== Tailwind CSS 커스터마이징 ===== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== 커스텀 색상 팔레트 ===== */
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #64748b;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --error-color: #ef4444;
-    --background-color: #f8fafc;
-    --text-color: #1e293b;
-    --border-color: #e2e8f0;
+    /* GEP 브랜드 컬러 */
+    --gep-primary: #3B82F6;      /* Blue 500 */
+    --gep-primary-dark: #2563EB; /* Blue 600 */
+    --gep-primary-light: #60A5FA; /* Blue 400 */
+    
+    /* 보조 컬러 */
+    --gep-success: #10B981;      /* Emerald 500 */
+    --gep-warning: #F59E0B;      /* Amber 500 */
+    --gep-error: #EF4444;        /* Red 500 */
+    --gep-info: #06B6D4;         /* Cyan 500 */
+    
+    /* 중성 컬러 */
+    --gep-gray-50: #F9FAFB;
+    --gep-gray-100: #F3F4F6;
+    --gep-gray-200: #E5E7EB;
+    --gep-gray-300: #D1D5DB;
+    --gep-gray-400: #9CA3AF;
+    --gep-gray-500: #6B7280;
+    --gep-gray-600: #4B5563;
+    --gep-gray-700: #374151;
+    --gep-gray-800: #1F2937;
+    --gep-gray-900: #111827;
+    
+    /* 시험 유형별 컬러 */
+    --gep-life: #8B5CF6;         /* Violet 500 - 생명보험 */
+    --gep-damage: #F97316;       /* Orange 500 - 손해보험 */
+    --gep-third: #EC4899;        /* Pink 500 - 제3보험 */
 }
 
-/* Global Styles */
-body {
-    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
+/* ===== 기본 스타일 리셋 ===== */
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+    
+    html {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--gep-gray-50);
+        color: var(--gep-gray-900);
+        font-size: 16px;
+    }
+    
+    /* 스크롤바 스타일링 */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: var(--gep-gray-100);
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: var(--gep-gray-300);
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--gep-gray-400);
+    }
+    
+    /* 포커스 스타일 */
+    *:focus {
+        outline: 2px solid var(--gep-primary);
+        outline-offset: 2px;
+    }
+    
+    /* 버튼 포커스 스타일 */
+    button:focus {
+        outline: none;
+        ring: 2px;
+        ring-color: var(--gep-primary);
+        ring-offset: 2px;
+    }
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    line-height: 1.25;
-    margin-bottom: 0.5rem;
+/* ===== 타이포그래피 시스템 ===== */
+@layer components {
+    /* 제목 스타일 */
+    .gep-heading-1 {
+        @apply text-4xl font-bold text-gray-900 leading-tight;
+    }
+    
+    .gep-heading-2 {
+        @apply text-3xl font-semibold text-gray-900 leading-tight;
+    }
+    
+    .gep-heading-3 {
+        @apply text-2xl font-semibold text-gray-900 leading-tight;
+    }
+    
+    .gep-heading-4 {
+        @apply text-xl font-medium text-gray-900 leading-tight;
+    }
+    
+    .gep-heading-5 {
+        @apply text-lg font-medium text-gray-900 leading-tight;
+    }
+    
+    .gep-heading-6 {
+        @apply text-base font-medium text-gray-900 leading-tight;
+    }
+    
+    /* 본문 텍스트 */
+    .gep-text-large {
+        @apply text-lg text-gray-700 leading-relaxed;
+    }
+    
+    .gep-text-base {
+        @apply text-base text-gray-700 leading-relaxed;
+    }
+    
+    .gep-text-small {
+        @apply text-sm text-gray-600 leading-relaxed;
+    }
+    
+    .gep-text-xs {
+        @apply text-xs text-gray-500 leading-relaxed;
+    }
+    
+    /* 링크 스타일 */
+    .gep-link {
+        @apply text-blue-600 hover:text-blue-700 underline transition-colors;
+    }
+    
+    .gep-link-primary {
+        @apply text-blue-600 hover:text-blue-700 font-medium transition-colors;
+    }
+    
+    /* 강조 텍스트 */
+    .gep-text-emphasis {
+        @apply font-semibold text-gray-900;
+    }
+    
+    .gep-text-muted {
+        @apply text-gray-500;
+    }
 }
 
-h1 { font-size: 2rem; }
-h2 { font-size: 1.75rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.125rem; }
-h6 { font-size: 1rem; }
-
-/* Buttons */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-    border: none;
-    outline: none;
+/* ===== 버튼 컴포넌트 ===== */
+@layer components {
+    .gep-btn {
+        @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+    
+    .gep-btn-primary {
+        @apply gep-btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+    }
+    
+    .gep-btn-secondary {
+        @apply gep-btn bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500;
+    }
+    
+    .gep-btn-success {
+        @apply gep-btn bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
+    }
+    
+    .gep-btn-warning {
+        @apply gep-btn bg-yellow-600 text-white hover:bg-yellow-700 focus:ring-yellow-500;
+    }
+    
+    .gep-btn-danger {
+        @apply gep-btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+    }
+    
+    .gep-btn-outline {
+        @apply gep-btn border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-blue-500;
+    }
+    
+    /* 버튼 크기 */
+    .gep-btn-sm {
+        @apply px-3 py-1.5 text-sm;
+    }
+    
+    .gep-btn-lg {
+        @apply px-6 py-3 text-lg;
+    }
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
+/* ===== 카드 컴포넌트 ===== */
+@layer components {
+    .gep-card {
+        @apply bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden;
+    }
+    
+    .gep-card-header {
+        @apply px-6 py-4 border-b border-gray-200 bg-gray-50;
+    }
+    
+    .gep-card-body {
+        @apply px-6 py-4;
+    }
+    
+    .gep-card-footer {
+        @apply px-6 py-4 border-t border-gray-200 bg-gray-50;
+    }
+    
+    .gep-card-hover {
+        @apply gep-card hover:shadow-md transition-shadow duration-200;
+    }
 }
 
-.btn-primary:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-1px);
+/* ===== 폼 컴포넌트 ===== */
+@layer components {
+    .gep-input {
+        @apply w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors;
+    }
+    
+    .gep-input-error {
+        @apply gep-input border-red-300 focus:ring-red-500 focus:border-red-500;
+    }
+    
+    .gep-label {
+        @apply block text-sm font-medium text-gray-700 mb-1;
+    }
+    
+    .gep-error-text {
+        @apply mt-1 text-sm text-red-600;
+    }
+    
+    .gep-help-text {
+        @apply mt-1 text-sm text-gray-500;
+    }
 }
 
-.btn-secondary {
-    background-color: var(--secondary-color);
-    color: white;
+/* ===== 배지 컴포넌트 ===== */
+@layer components {
+    .gep-badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+    
+    .gep-badge-primary {
+        @apply gep-badge bg-blue-100 text-blue-800;
+    }
+    
+    .gep-badge-success {
+        @apply gep-badge bg-green-100 text-green-800;
+    }
+    
+    .gep-badge-warning {
+        @apply gep-badge bg-yellow-100 text-yellow-800;
+    }
+    
+    .gep-badge-danger {
+        @apply gep-badge bg-red-100 text-red-800;
+    }
+    
+    .gep-badge-gray {
+        @apply gep-badge bg-gray-100 text-gray-800;
+    }
 }
 
-.btn-secondary:hover {
-    background-color: #475569;
+/* ===== 알림 컴포넌트 ===== */
+@layer components {
+    .gep-alert {
+        @apply p-4 rounded-lg border;
+    }
+    
+    .gep-alert-info {
+        @apply gep-alert bg-blue-50 border-blue-200 text-blue-800;
+    }
+    
+    .gep-alert-success {
+        @apply gep-alert bg-green-50 border-green-200 text-green-800;
+    }
+    
+    .gep-alert-warning {
+        @apply gep-alert bg-yellow-50 border-yellow-200 text-yellow-800;
+    }
+    
+    .gep-alert-error {
+        @apply gep-alert bg-red-50 border-red-200 text-red-800;
+    }
 }
 
-.btn-success {
-    background-color: var(--success-color);
-    color: white;
+/* ===== 그리드 시스템 ===== */
+@layer utilities {
+    .gep-container {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+    
+    .gep-grid {
+        @apply grid gap-6;
+    }
+    
+    .gep-grid-cols-1 {
+        @apply gep-grid grid-cols-1;
+    }
+    
+    .gep-grid-cols-2 {
+        @apply gep-grid grid-cols-1 md:grid-cols-2;
+    }
+    
+    .gep-grid-cols-3 {
+        @apply gep-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+    }
+    
+    .gep-grid-cols-4 {
+        @apply gep-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4;
+    }
 }
 
-.btn-warning {
-    background-color: var(--warning-color);
-    color: white;
+/* ===== 애니메이션 ===== */
+@layer utilities {
+    .gep-fade-in {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    .gep-slide-up {
+        animation: slideUp 0.3s ease-out;
+    }
+    
+    .gep-slide-down {
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    .gep-scale-in {
+        animation: scaleIn 0.2s ease-out;
+    }
+    
+    .gep-bounce-in {
+        animation: bounceIn 0.6s ease-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+        from { 
+            opacity: 0; 
+            transform: translateY(20px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+    }
+    
+    @keyframes slideDown {
+        from { 
+            opacity: 0; 
+            transform: translateY(-20px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+    }
+    
+    @keyframes scaleIn {
+        from { 
+            opacity: 0; 
+            transform: scale(0.95); 
+        }
+        to { 
+            opacity: 1; 
+            transform: scale(1); 
+        }
+    }
+    
+    @keyframes bounceIn {
+        0% { 
+            opacity: 0; 
+            transform: scale(0.3); 
+        }
+        50% { 
+            opacity: 1; 
+            transform: scale(1.05); 
+        }
+        70% { 
+            transform: scale(0.9); 
+        }
+        100% { 
+            opacity: 1; 
+            transform: scale(1); 
+        }
+    }
 }
 
-.btn-error {
-    background-color: var(--error-color);
-    color: white;
+/* ===== 반응형 유틸리티 ===== */
+@layer utilities {
+    .gep-responsive-text {
+        @apply text-sm sm:text-base lg:text-lg;
+    }
+    
+    .gep-responsive-heading {
+        @apply text-2xl sm:text-3xl lg:text-4xl;
+    }
+    
+    .gep-responsive-padding {
+        @apply px-4 sm:px-6 lg:px-8;
+    }
+    
+    .gep-responsive-margin {
+        @apply mx-4 sm:mx-6 lg:mx-8;
+    }
 }
 
-/* Cards */
-.card {
-    background: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
+/* ===== 시험 유형별 스타일 ===== */
+@layer components {
+    .gep-life-insurance {
+        @apply bg-violet-50 border-violet-200 text-violet-800;
+    }
+    
+    .gep-damage-insurance {
+        @apply bg-orange-50 border-orange-200 text-orange-800;
+    }
+    
+    .gep-third-insurance {
+        @apply bg-pink-50 border-pink-200 text-pink-800;
+    }
+    
+    .gep-life-badge {
+        @apply gep-badge bg-violet-100 text-violet-800;
+    }
+    
+    .gep-damage-badge {
+        @apply gep-badge bg-orange-100 text-orange-800;
+    }
+    
+    .gep-third-badge {
+        @apply gep-badge bg-pink-100 text-pink-800;
+    }
 }
 
-.card-header {
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+/* ===== 문제 풀이 관련 스타일 ===== */
+@layer components {
+    .gep-question-card {
+        @apply gep-card gep-card-hover;
+    }
+    
+    .gep-answer-option {
+        @apply w-full p-4 border border-gray-300 rounded-lg cursor-pointer transition-all duration-200 hover:border-blue-300 hover:bg-blue-50;
+    }
+    
+    .gep-answer-option.selected {
+        @apply border-blue-500 bg-blue-50;
+    }
+    
+    .gep-answer-option.correct {
+        @apply border-green-500 bg-green-50;
+    }
+    
+    .gep-answer-option.incorrect {
+        @apply border-red-500 bg-red-50;
+    }
+    
+    .gep-progress-bar {
+        @apply w-full bg-gray-200 rounded-full h-2;
+    }
+    
+    .gep-progress-fill {
+        @apply bg-blue-600 h-2 rounded-full transition-all duration-300;
+    }
 }
 
-.card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0;
+/* ===== 통계 대시보드 스타일 ===== */
+@layer components {
+    .gep-stat-card {
+        @apply gep-card p-6;
+    }
+    
+    .gep-stat-number {
+        @apply text-3xl font-bold text-gray-900;
+    }
+    
+    .gep-stat-label {
+        @apply text-sm font-medium text-gray-500 uppercase tracking-wide;
+    }
+    
+    .gep-stat-change {
+        @apply text-sm font-medium;
+    }
+    
+    .gep-stat-change.positive {
+        @apply text-green-600;
+    }
+    
+    .gep-stat-change.negative {
+        @apply text-red-600;
+    }
+    
+    .gep-chart-container {
+        @apply gep-card p-6;
+    }
 }
 
-/* Forms */
-.form-group {
-    margin-bottom: 1rem;
+/* ===== 다크 모드 지원 (선택적) ===== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --gep-gray-50: #111827;
+        --gep-gray-100: #1F2937;
+        --gep-gray-200: #374151;
+        --gep-gray-300: #4B5563;
+        --gep-gray-400: #6B7280;
+        --gep-gray-500: #9CA3AF;
+        --gep-gray-600: #D1D5DB;
+        --gep-gray-700: #E5E7EB;
+        --gep-gray-800: #F3F4F6;
+        --gep-gray-900: #F9FAFB;
+    }
+    
+    body {
+        background-color: var(--gep-gray-50);
+        color: var(--gep-gray-900);
+    }
+    
+    .gep-card {
+        @apply bg-gray-800 border-gray-700;
+    }
+    
+    .gep-card-header {
+        @apply bg-gray-700 border-gray-600;
+    }
+    
+    .gep-card-footer {
+        @apply bg-gray-700 border-gray-600;
+    }
 }
 
-.form-label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
+/* ===== 인쇄 스타일 ===== */
+@media print {
+    .gep-no-print {
+        display: none !important;
+    }
+    
+    .gep-card {
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
 }
 
-.form-input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    transition: border-color 0.2s ease-in-out;
+/* ===== 접근성 개선 ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
-.form-input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.form-input.error {
-    border-color: var(--error-color);
-}
-
-.form-error {
-    color: var(--error-color);
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-}
-
-/* Alerts */
-.alert {
-    padding: 1rem;
-    border-radius: 0.375rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-}
-
-.alert-success {
-    background-color: #d1fae5;
-    border-color: #a7f3d0;
-    color: #065f46;
-}
-
-.alert-warning {
-    background-color: #fef3c7;
-    border-color: #fde68a;
-    color: #92400e;
-}
-
-.alert-error {
-    background-color: #fee2e2;
-    border-color: #fecaca;
-    color: #991b1b;
-}
-
-.alert-info {
-    background-color: #dbeafe;
-    border-color: #bfdbfe;
-    color: #1e40af;
-}
-
-/* Loading Spinner */
-.spinner {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Utility Classes */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-
-.mt-1 { margin-top: 0.25rem; }
-.mt-2 { margin-top: 0.5rem; }
-.mt-3 { margin-top: 0.75rem; }
-.mt-4 { margin-top: 1rem; }
-.mt-5 { margin-top: 1.25rem; }
-.mt-6 { margin-top: 1.5rem; }
-
-.mb-1 { margin-bottom: 0.25rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-3 { margin-bottom: 0.75rem; }
-.mb-4 { margin-bottom: 1rem; }
-.mb-5 { margin-bottom: 1.25rem; }
-.mb-6 { margin-bottom: 1.5rem; }
-
-.p-1 { padding: 0.25rem; }
-.p-2 { padding: 0.5rem; }
-.p-3 { padding: 0.75rem; }
-.p-4 { padding: 1rem; }
-.p-5 { padding: 1.25rem; }
-.p-6 { padding: 1.5rem; }
-
-/* Hide/Show */
-.hidden { display: none; }
-.visible { display: block; }
-
-/* Focus States */
-.focus\:outline-none:focus {
-    outline: none;
-}
-
-.focus\:ring-2:focus {
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+/* ===== 고대비 모드 지원 ===== */
+@media (prefers-contrast: high) {
+    .gep-btn {
+        border-width: 2px;
+    }
+    
+    .gep-card {
+        border-width: 2px;
+    }
+    
+    .gep-input {
+        border-width: 2px;
+    }
 }

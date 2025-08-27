@@ -1,0 +1,436 @@
+/* GEP Responsive CSS */
+
+/* 모바일 우선 접근법 */
+
+/* 기본 모바일 스타일 (320px 이상) */
+@media (max-width: 767px) {
+    .gep-container {
+        padding: 0 0.5rem;
+    }
+    
+    .gep-heading-1 {
+        font-size: 2rem;
+    }
+    
+    .gep-heading-2 {
+        font-size: 1.75rem;
+    }
+    
+    .gep-text-large {
+        font-size: 1rem;
+    }
+    
+    .gep-btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .gep-card {
+        padding: 1.5rem;
+    }
+    
+    .question-card {
+        padding: 1.5rem;
+    }
+    
+    .question-text {
+        font-size: 1rem;
+    }
+    
+    .option-button {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .stats-card {
+        padding: 1rem;
+    }
+    
+    .stats-number {
+        font-size: 2rem;
+    }
+    
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+    }
+    
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    /* 그리드 레이아웃 조정 */
+    .grid-cols-1 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 플렉스 레이아웃 조정 */
+    .flex-col {
+        flex-direction: column;
+    }
+    
+    .flex-row {
+        flex-direction: column;
+    }
+    
+    /* 버튼 스택 */
+    .btn-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn-stack .gep-btn-primary,
+    .btn-stack .gep-btn-outline {
+        width: 100%;
+    }
+}
+
+/* 태블릿 스타일 (768px 이상) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .gep-container {
+        padding: 0 1rem;
+    }
+    
+    .gep-heading-1 {
+        font-size: 2.5rem;
+    }
+    
+    .gep-heading-2 {
+        font-size: 2rem;
+    }
+    
+    .gep-text-large {
+        font-size: 1.125rem;
+    }
+    
+    .gep-card {
+        padding: 1.75rem;
+    }
+    
+    .question-card {
+        padding: 1.75rem;
+    }
+    
+    .stats-card {
+        padding: 1.25rem;
+    }
+    
+    .stats-number {
+        font-size: 2.25rem;
+    }
+    
+    /* 그리드 레이아웃 조정 */
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* 플렉스 레이아웃 조정 */
+    .flex-row {
+        flex-direction: row;
+    }
+    
+    /* 버튼 인라인 */
+    .btn-inline {
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+/* 데스크톱 스타일 (1024px 이상) */
+@media (min-width: 1024px) {
+    .gep-container {
+        padding: 0 1.5rem;
+    }
+    
+    .gep-heading-1 {
+        font-size: 3rem;
+    }
+    
+    .gep-heading-2 {
+        font-size: 2.5rem;
+    }
+    
+    .gep-text-large {
+        font-size: 1.25rem;
+    }
+    
+    .gep-card {
+        padding: 2rem;
+    }
+    
+    .question-card {
+        padding: 2rem;
+    }
+    
+    .stats-card {
+        padding: 1.5rem;
+    }
+    
+    .stats-number {
+        font-size: 2.5rem;
+    }
+    
+    /* 그리드 레이아웃 */
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-cols-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* 플렉스 레이아웃 */
+    .flex-row {
+        flex-direction: row;
+    }
+    
+    /* 버튼 인라인 */
+    .btn-inline {
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+/* 대형 데스크톱 스타일 (1280px 이상) */
+@media (min-width: 1280px) {
+    .gep-container {
+        max-width: 1200px;
+        padding: 0 2rem;
+    }
+    
+    .gep-heading-1 {
+        font-size: 3.5rem;
+    }
+    
+    .gep-heading-2 {
+        font-size: 3rem;
+    }
+    
+    .gep-text-large {
+        font-size: 1.375rem;
+    }
+    
+    .gep-card {
+        padding: 2.5rem;
+    }
+    
+    .question-card {
+        padding: 2.5rem;
+    }
+    
+    .stats-card {
+        padding: 2rem;
+    }
+    
+    .stats-number {
+        font-size: 3rem;
+    }
+}
+
+/* 초대형 스크린 (1536px 이상) */
+@media (min-width: 1536px) {
+    .gep-container {
+        max-width: 1400px;
+    }
+    
+    .gep-heading-1 {
+        font-size: 4rem;
+    }
+    
+    .gep-heading-2 {
+        font-size: 3.5rem;
+    }
+    
+    .gep-text-large {
+        font-size: 1.5rem;
+    }
+}
+
+/* 랜드스케이프 모바일 */
+@media (max-width: 767px) and (orientation: landscape) {
+    .gep-heading-1 {
+        font-size: 1.75rem;
+    }
+    
+    .gep-heading-2 {
+        font-size: 1.5rem;
+    }
+    
+    .gep-card {
+        padding: 1rem;
+    }
+    
+    .question-card {
+        padding: 1rem;
+    }
+}
+
+/* 프린트 스타일 */
+@media print {
+    .nav-container,
+    .footer,
+    .modal-overlay,
+    .btn-stack,
+    .btn-inline {
+        display: none !important;
+    }
+    
+    .gep-container {
+        max-width: none;
+        padding: 0;
+    }
+    
+    .gep-card,
+    .question-card,
+    .stats-card {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+        break-inside: avoid;
+    }
+    
+    .gep-heading-1,
+    .gep-heading-2 {
+        color: #000;
+    }
+    
+    .gep-text-large {
+        color: #000;
+    }
+}
+
+/* 접근성 개선 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .loading-spinner {
+        animation: none;
+    }
+}
+
+/* 다크 모드 지원 */
+@media (prefers-color-scheme: dark) {
+    .gep-card,
+    .question-card,
+    .stats-card {
+        background: #1f2937;
+        color: #f9fafb;
+    }
+    
+    .question-text {
+        color: #f9fafb;
+    }
+    
+    .option-button {
+        background: #374151;
+        border-color: #4b5563;
+        color: #f9fafb;
+    }
+    
+    .option-button:hover {
+        background: #4b5563;
+    }
+    
+    .nav-container {
+        background: #1f2937;
+        border-bottom-color: #374151;
+    }
+    
+    .nav-link {
+        color: #d1d5db;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        color: #60a5fa;
+    }
+}
+
+/* 고대비 모드 */
+@media (prefers-contrast: high) {
+    .gep-btn-primary {
+        border: 2px solid #000;
+    }
+    
+    .gep-btn-outline {
+        border: 2px solid #000;
+    }
+    
+    .option-button {
+        border: 2px solid #000;
+    }
+    
+    .progress-bar {
+        border: 1px solid #000;
+    }
+}
+
+/* 포커스 표시 개선 */
+@media (prefers-reduced-motion: no-preference) {
+    .gep-btn-primary:focus,
+    .gep-btn-outline:focus,
+    .option-button:focus {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+    }
+}
+
+/* 터치 디바이스 최적화 */
+@media (hover: none) and (pointer: coarse) {
+    .gep-btn-primary,
+    .gep-btn-outline,
+    .option-button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .nav-link {
+        padding: 0.5rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* 특정 브라우저 지원 */
+@supports (-webkit-appearance: none) {
+    /* Safari 전용 스타일 */
+    .gep-btn-primary,
+    .gep-btn-outline {
+        -webkit-appearance: none;
+    }
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    /* backdrop-filter 지원 브라우저 */
+    .modal-overlay {
+        backdrop-filter: blur(10px);
+    }
+}

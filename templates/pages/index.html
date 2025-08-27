@@ -3,7 +3,7 @@
 {% block title %}GEP - 손해보험중개사 시험 대비{% endblock %}
 
 {% block content %}
-<div class="max-w-4xl mx-auto">
+<div class="max-w-6xl mx-auto">
     <!-- Hero Section -->
     <div class="text-center mb-8">
         <h1 class="text-4xl font-bold text-gray-900 mb-4">
@@ -13,62 +13,71 @@
             과학적 학습 이론과 기출문제 권위성을 결합한 차세대 학습 플랫폼
         </p>
         
-        <!-- Service Level Cards -->
-        <div class="grid md:grid-cols-3 gap-6 mb-8">
-            <!-- Free Service -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title text-green-600">무료 서비스</h3>
-                </div>
-                <div class="space-y-3">
-                    <p class="text-gray-600">기출 회차별 학습</p>
-                    <ul class="text-sm text-gray-500 space-y-1">
-                        <li>• 20회~30회 기출문제 순차 학습</li>
-                        <li>• 기본 통계 제공</li>
-                        <li>• 이어풀기 기능</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Basic Service -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title text-blue-600">기본 서비스</h3>
-                </div>
-                <div class="space-y-3">
-                    <p class="text-gray-600">과목별 필터링 학습</p>
-                    <ul class="text-sm text-gray-500 space-y-1">
-                        <li>• 12개 과목별 필터링</li>
-                        <li>• 상세 통계 분석</li>
-                        <li>• 틀린문제 학습</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Premium Service -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title text-purple-600">고급 서비스</h3>
-                </div>
-                <div class="space-y-3">
-                    <p class="text-gray-600">종합 학습 경험</p>
-                    <ul class="text-sm text-gray-500 space-y-1">
-                        <li>• 객관식 문제 제공</li>
-                        <li>• 미니모의고사</li>
-                        <li>• 고급 통계 분석</li>
-                    </ul>
-                </div>
-            </div>
+        <!-- QGENERATOR 버튼 (상단 빨간박스 영역) -->
+        <div class="mb-8 p-6 bg-red-50 border-2 border-red-200 rounded-lg">
+            <h3 class="text-lg font-semibold text-red-800 mb-3">🔧 관리자 도구</h3>
+            <a href="/qgenerator" class="inline-flex items-center px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors duration-200 shadow-lg">
+                <i class="fas fa-cogs mr-2"></i>
+                QGENERATOR - 진위형 문제 생성기
+            </a>
+            <p class="text-sm text-red-600 mt-2">기출문제를 기반으로 새로운 진위형 문제를 생성하는 관리자 도구입니다.</p>
         </div>
         
-        <!-- Action Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/register" class="btn btn-primary text-lg px-8 py-3">
-                시작하기
-            </a>
-            <a href="/learning" class="btn btn-secondary text-lg px-8 py-3">
-                바로 학습
-            </a>
+        <!-- Service Level Primary Actions as Large Buttons -->
+        <div class="grid md:grid-cols-3 gap-6 mb-10">
+            <div class="service-btn service-btn-free" id="freeServiceBtn">
+                <h3 class="service-btn-title">무료 서비스 바로 시작</h3>
+                <p class="service-btn-description">기출 회차별 학습</p>
+                <ul class="service-btn-features">
+                    <li>• 20회~30회 기출문제 순차 학습</li>
+                    <li>• 기본 통계 제공</li>
+                    <li>• 이어풀기 기능</li>
+                </ul>
+            </div>
+            <div class="service-btn service-btn-basic">
+                <h3 class="service-btn-title">기본 서비스</h3>
+                <p class="service-btn-description">과목별 필터링 학습</p>
+                <ul class="service-btn-features">
+                    <li>• 12개 과목별 필터링</li>
+                    <li>• 상세 통계 분석</li>
+                    <li>• 틀린문제 학습</li>
+                </ul>
+                <span class="service-btn-status">준비중</span>
+            </div>
+            <div class="service-btn service-btn-premium">
+                <h3 class="service-btn-title">고급 서비스</h3>
+                <p class="service-btn-description">종합 학습 경험</p>
+                <ul class="service-btn-features">
+                    <li>• 객관식 문제 제공</li>
+                    <li>• 미니모의고사</li>
+                    <li>• 고급 통계 분석</li>
+                </ul>
+                <span class="service-btn-status">준비중</span>
+            </div>
+        </div>
+
+        <!-- 회차 선택 영역 (초기에는 숨김) -->
+        <div id="sessionSelectionArea" class="hidden mt-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">학습할 회차를 선택하세요</h3>
+            <div class="grid grid-cols-5 md:grid-cols-11 gap-3 mb-6">
+                <button class="session-select-btn" data-session="20">20회</button>
+                <button class="session-select-btn" data-session="21">21회</button>
+                <button class="session-select-btn" data-session="22">22회</button>
+                <button class="session-select-btn" data-session="23">23회</button>
+                <button class="session-select-btn" data-session="24">24회</button>
+                <button class="session-select-btn" data-session="25">25회</button>
+                <button class="session-select-btn" data-session="26">26회</button>
+                <button class="session-select-btn" data-session="27">27회</button>
+                <button class="session-select-btn" data-session="28">28회</button>
+                <button class="session-select-btn" data-session="29">29회</button>
+                <button class="session-select-btn" data-session="30">30회</button>
+            </div>
+            <div class="text-center">
+                <button id="startLearningBtn" class="gep-btn-primary gep-btn-lg" disabled>
+                    <i class="fas fa-play mr-2"></i>
+                    선택한 회차로 학습 시작
+                </button>
+            </div>
         </div>
     </div>
     
@@ -95,8 +104,119 @@
 
 {% block scripts %}
 <script>
-// 페이지 로드 시 사용자 상태 확인
+// 새로운 대문 UI 관리 시스템
+class MainPageManager {
+    constructor() {
+        this.selectedSession = null;
+        this.sessionProgress = this.loadSessionProgress();
+        this.initialize();
+    }
+
+    initialize() {
+        // 무료 서비스 버튼 클릭 이벤트
+        document.getElementById('freeServiceBtn').addEventListener('click', () => {
+            this.showSessionSelection();
+        });
+
+        // 회차 선택 버튼들 이벤트
+        document.querySelectorAll('.session-select-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.selectSession(btn.dataset.session);
+            });
+        });
+
+        // 학습 시작 버튼 이벤트
+        document.getElementById('startLearningBtn').addEventListener('click', () => {
+            this.startLearning();
+        });
+
+        // 초기 회차 버튼 상태 업데이트
+        this.updateSessionButtons();
+    }
+
+    showSessionSelection() {
+        const sessionArea = document.getElementById('sessionSelectionArea');
+        sessionArea.classList.remove('hidden');
+        sessionArea.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    selectSession(sessionNumber) {
+        this.selectedSession = sessionNumber;
+        
+        // 모든 버튼에서 선택 상태 제거
+        document.querySelectorAll('.session-select-btn').forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        
+        // 선택된 버튼에 선택 상태 추가
+        const selectedBtn = document.querySelector(`[data-session="${sessionNumber}"]`);
+        if (selectedBtn) {
+            selectedBtn.classList.add('selected');
+        }
+        
+        // 학습 시작 버튼 활성화
+        document.getElementById('startLearningBtn').disabled = false;
+        
+        // 버튼 텍스트 업데이트
+        this.updateSessionButtons();
+    }
+
+    updateSessionButtons() {
+        document.querySelectorAll('.session-select-btn').forEach(btn => {
+            const sessionNumber = btn.dataset.session;
+            const progress = this.sessionProgress[sessionNumber] || 0;
+            const totalQuestions = this.getTotalQuestions(sessionNumber);
+            
+            if (progress > 0) {
+                btn.textContent = `${sessionNumber}회 (${progress}/${totalQuestions})`;
+                btn.classList.add('has-progress');
+            } else {
+                btn.textContent = `${sessionNumber}회`;
+                btn.classList.remove('has-progress');
+            }
+        });
+    }
+
+    getTotalQuestions(sessionNumber) {
+        const sessionNum = parseInt(sessionNumber);
+        if (sessionNum === 22) return 159;
+        if (sessionNum <= 22) return 160;
+        return 120;
+    }
+
+    startLearning() {
+        if (this.selectedSession) {
+            // 선택된 회차 정보를 localStorage에 저장
+            localStorage.setItem('selected_session', this.selectedSession);
+            // 바로 문제풀이 화면으로 이동하도록 플래그 추가
+            localStorage.setItem('skip_start_screen', 'true');
+            // 학습 페이지로 이동
+            window.location.href = '/learning';
+        }
+    }
+
+    loadSessionProgress() {
+        try {
+            const results = JSON.parse(localStorage.getItem('gep_quiz_results') || '[]');
+            const progress = {};
+            
+            results.forEach(result => {
+                if (result.session) {
+                    progress[result.session] = (progress[result.session] || 0) + result.summary.total;
+                }
+            });
+            
+            return progress;
+        } catch (error) {
+            console.error('진행 상황 로드 실패:', error);
+            return {};
+        }
+    }
+}
+
+// 페이지 로드 시 초기화
 document.addEventListener('DOMContentLoaded', function() {
+    // 기존 사용자 상태 확인 코드
     const userPhone = localStorage.getItem('user_phone');
     const serviceLevel = localStorage.getItem('service_level') || 'free';
     
@@ -108,6 +228,9 @@ document.addEventListener('DOMContentLoaded', function() {
             serviceLevel === 'free' ? '무료' : 
             serviceLevel === 'basic' ? '기본' : '고급';
     }
+
+    // 새로운 대문 관리 시스템 초기화
+    window.mainPageManager = new MainPageManager();
 });
 </script>
 {% endblock %}

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제 풀이 - GEP</title>
+    <meta name="description" content="보험 자격시험 문제 풀이">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GEP 스타일시트 -->
+    <link rel="stylesheet" href="../css/main.css">
+    
+    <!-- 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- 네비게이션은 JavaScript로 동적 생성 -->
+    
+    <!-- 메인 콘텐츠 -->
+    <main id="main-content" class="min-h-screen">
+        <!-- 헤더 섹션 -->
+        <section class="bg-white shadow-sm border-b border-gray-200">
+            <div class="gep-container">
+                <div class="py-4">
+                    <div class="flex items-center justify-between">
+                        <!-- 좌측: 시험 정보 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">G</span>
+                                </div>
+                                <span class="text-lg font-semibold text-gray-900">문제 풀이</span>
+                            </div>
+                            <div class="hidden md:block">
+                                <span class="text-sm text-gray-500">|</span>
+                                <span class="text-sm text-gray-600 ml-2" id="exam-type">보험중개사</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 우측: 진행률 및 타이머 -->
+                        <div class="flex items-center space-x-4">
+                            <!-- 진행률 -->
+                            <div class="hidden sm:block">
+                                <div class="text-sm text-gray-600">
+                                    <span id="current-question">1</span> / <span id="total-questions">20</span>
+                                </div>
+                                <div class="w-32 h-2 bg-gray-200 rounded-full mt-1">
+                                    <div id="progress-bar" class="h-2 bg-blue-600 rounded-full transition-all duration-300" style="width: 5%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- 타이머 -->
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-clock text-gray-400"></i>
+                                <span id="timer" class="text-sm font-medium text-gray-700">00:00</span>
+                            </div>
+                            
+                            <!-- 일시정지 버튼 -->
+                            <button id="pause-btn" class="p-2 text-gray-400 hover:text-gray-600 transition-colors">
+                                <i class="fas fa-pause"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 문제 풀이 영역 -->
+        <section class="py-8">
+            <div class="gep-container">
+                <div class="max-w-4xl mx-auto">
+                    <!-- 문제 카드 -->
+                    <div class="gep-card mb-8">
+                        <div class="p-8">
+                            <!-- 문제 번호 및 유형 -->
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center space-x-3">
+                                    <span class="gep-badge gep-badge-primary" id="question-number">문제 1</span>
+                                    <span class="gep-badge gep-badge-gray" id="question-type">객관식</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <button id="bookmark-btn" class="p-2 text-gray-400 hover:text-yellow-500 transition-colors">
+                                        <i class="far fa-bookmark"></i>
+                                    </button>
+                                    <button id="flag-btn" class="p-2 text-gray-400 hover:text-red-500 transition-colors">
+                                        <i class="far fa-flag"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 문제 내용 -->
+                            <div class="mb-8">
+                                <h2 class="gep-heading-3 mb-4 text-gray-900" id="question-text">
+                                    문제 내용이 여기에 표시됩니다.
+                                </h2>
+                                
+                                <!-- 문제 이미지 (있는 경우) -->
+                                <div id="question-image" class="hidden mb-6">
+                                    <img src="" alt="문제 이미지" class="max-w-full h-auto rounded-lg border border-gray-200">
+                                </div>
+                                
+                                <!-- 문제 설명 -->
+                                <div id="question-description" class="hidden">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-gray-900 mb-2">문제 설명</h4>
+                                        <p class="text-gray-600 text-sm" id="description-text"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 답안 선택 영역 -->
+                            <div class="space-y-3" id="answer-options">
+                                <!-- 답안 옵션들은 JavaScript로 동적 생성 -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 하단 컨트롤 -->
+                    <div class="flex items-center justify-between">
+                        <!-- 좌측: 이전 버튼 -->
+                        <button id="prev-btn" class="gep-btn-secondary gep-btn-sm" disabled>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                            이전
+                        </button>
+                        
+                        <!-- 중앙: 답안 확인 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="text-sm text-gray-600">
+                                선택한 답안: <span id="selected-answer" class="font-medium">-</span>
+                            </div>
+                            <button id="clear-btn" class="text-sm text-gray-500 hover:text-gray-700 transition-colors">
+                                답안 지우기
+                            </button>
+                        </div>
+                        
+                        <!-- 우측: 다음/제출 버튼 -->
+                        <div class="flex items-center space-x-3">
+                            <button id="next-btn" class="gep-btn-primary gep-btn-sm">
+                                다음
+                                <i class="fas fa-chevron-right ml-2"></i>
+                            </button>
+                            <button id="submit-btn" class="gep-btn-success gep-btn-sm hidden">
+                                제출
+                                <i class="fas fa-check ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 결과 표시 영역 (숨김) -->
+        <section id="result-section" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+                <div class="text-center">
+                    <!-- 결과 아이콘 -->
+                    <div id="result-icon" class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check text-2xl text-white"></i>
+                    </div>
+                    
+                    <!-- 결과 메시지 -->
+                    <h3 id="result-title" class="text-lg font-semibold mb-2">정답입니다!</h3>
+                    <p id="result-message" class="text-gray-600 mb-6">
+                        훌륭합니다! 정답을 맞추셨습니다.
+                    </p>
+                    
+                    <!-- 해설 (있는 경우) -->
+                    <div id="explanation" class="hidden mb-6">
+                        <h4 class="font-medium text-gray-900 mb-2">해설</h4>
+                        <p id="explanation-text" class="text-sm text-gray-600 bg-gray-50 p-3 rounded"></p>
+                    </div>
+                    
+                    <!-- 버튼들 -->
+                    <div class="flex space-x-3">
+                        <button id="continue-btn" class="gep-btn-primary flex-1">
+                            계속하기
+                        </button>
+                        <button id="review-btn" class="gep-btn-outline flex-1">
+                            다시보기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 일시정지 모달 -->
+        <section id="pause-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-pause text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">일시정지</h3>
+                    <p class="text-gray-600 mb-6">
+                        문제 풀이가 일시정지되었습니다.<br>
+                        계속하시겠습니까?
+                    </p>
+                    <div class="flex space-x-3">
+                        <button id="resume-btn" class="gep-btn-primary flex-1">
+                            계속하기
+                        </button>
+                        <button id="exit-btn" class="gep-btn-outline flex-1">
+                            나가기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 설정 패널 (우측 사이드바) -->
+        <section id="settings-panel" class="hidden fixed right-0 top-0 h-full w-80 bg-white shadow-lg z-40 transform translate-x-full transition-transform duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold">설정</h3>
+                    <button id="close-settings" class="p-2 text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <!-- 설정 옵션들 -->
+                <div class="space-y-6">
+                    <!-- 문제 유형 필터 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">문제 유형</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2" checked>
+                                <span class="text-sm">객관식</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2" checked>
+                                <span class="text-sm">진위형</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- 난이도 필터 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">난이도</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2" checked>
+                                <span class="text-sm">쉬움</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2" checked>
+                                <span class="text-sm">보통</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2" checked>
+                                <span class="text-sm">어려움</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- 자동 제출 설정 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">자동 제출</h4>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2" id="auto-submit">
+                            <span class="text-sm">답안 선택 시 자동 제출</span>
+                        </label>
+                    </div>
+                    
+                    <!-- 타이머 설정 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">타이머</h4>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2" id="show-timer" checked>
+                            <span class="text-sm">타이머 표시</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../js/core/data-manager.js"></script>
+    <script src="../js/ui/components.js"></script>
+    <script src="../js/ui/navigation.js"></script>
+    <script src="../js/ui/quiz-ui.js"></script>
+</body>
+</html>
+

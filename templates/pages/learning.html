@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEP - 학습하기 | 보험 자격시험 준비 플랫폼</title>
+    <meta name="description" content="보험중개사, 보험심사역, 손해사정사 자격시험을 위한 종합 학습 플랫폼">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GEP 스타일시트 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    
+    <!-- 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- 네비게이션 -->
+    <nav class="nav-container">
+        <div class="gep-container">
+            <div class="nav-content">
+                <div class="nav-brand">GEP</div>
+                <ul class="nav-links">
+                    <li><a href="/" class="nav-link">홈</a></li>
+                    <li><a href="/learning" class="nav-link active">학습하기</a></li>
+                    <li><a href="/statistics" class="nav-link">통계</a></li>
+                </ul>
+                <div class="text-sm text-gray-600">서비스 레벨: 무료</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 메인 콘텐츠 -->
+    <main>
+        <!-- 학습 헤더 -->
+        <section class="bg-white border-b border-gray-200">
+            <div class="gep-container">
+                <div class="py-8">
+                    <h1 class="gep-heading-2 mb-4">문제 풀이 학습</h1>
+                    <p class="gep-text-large text-gray-600">기출문제를 통해 실전 감각을 키워보세요</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- 문제 영역 -->
+        <section class="py-8">
+            <div class="gep-container">
+                <!-- 회차 간 이동 UI (문제 풀이 중에만 표시) -->
+                <div id="sessionNavigation" class="hidden mb-6">
+                    <div class="bg-white rounded-lg p-4 shadow-sm border">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-3">다른 회차로 이동</h4>
+                        <div class="grid grid-cols-5 md:grid-cols-11 gap-2">
+                            <button class="session-nav-btn" data-session="20">20회</button>
+                            <button class="session-nav-btn" data-session="21">21회</button>
+                            <button class="session-nav-btn" data-session="22">22회</button>
+                            <button class="session-nav-btn" data-session="23">23회</button>
+                            <button class="session-nav-btn" data-session="24">24회</button>
+                            <button class="session-nav-btn" data-session="25">25회</button>
+                            <button class="session-nav-btn" data-session="26">26회</button>
+                            <button class="session-nav-btn" data-session="27">27회</button>
+                            <button class="session-nav-btn" data-session="28">28회</button>
+                            <button class="session-nav-btn" data-session="29">29회</button>
+                            <button class="session-nav-btn" data-session="30">30회</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="questionContainer" class="hidden">
+                    <!-- 문제 카드 -->
+                    <div class="question-card">
+                        <div class="text-sm text-gray-500 mb-2" id="questionMeta">출처 정보를 불러오는 중...</div>
+                        <div class="question-number" id="questionNumber">문제 1</div>
+                        <div class="question-text" id="questionText">
+                            문제를 로딩 중입니다...
+                        </div>
+                    </div>
+
+                    <!-- 4지선다형 버튼 (한 행) -->
+                    <div class="mt-6">
+                        <div class="flex gap-4 mb-6 justify-center options-row">
+                            <button id="option1" class="option-btn option-square" data-option="1">
+                                <span class="option-number">1</span>
+                            </button>
+                            <button id="option2" class="option-btn option-square" data-option="2">
+                                <span class="option-number">2</span>
+                            </button>
+                            <button id="option3" class="option-btn option-square" data-option="3">
+                                <span class="option-number">3</span>
+                            </button>
+                            <button id="option4" class="option-btn option-square" data-option="4">
+                                <span class="option-number">4</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 정답 결과 표시 영역 -->
+                    <div id="answerResult" class="hidden mt-4 p-4 rounded-lg">
+                        <div class="flex items-center">
+                            <i id="resultIcon" class="text-2xl mr-3"></i>
+                            <div>
+                                <div id="resultMessage" class="font-bold text-2xl"></div>
+                                <div id="correctAnswerText" class="text-base text-gray-700 mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 컨트롤 버튼 (3열: 이전 | 정답확인 | 다음) -->
+                    <div class="grid grid-cols-3 items-center mt-6 gap-4 controls-row">
+                        <div class="justify-self-start">
+                            <button id="prevQuestion" class="gep-btn-outline" disabled>
+                                <i class="fas fa-arrow-left mr-2"></i>
+                                이전 문제
+                            </button>
+                        </div>
+                        <div class="justify-self-center">
+                            <button id="checkAnswer" class="gep-btn-primary gep-btn-lg" disabled>
+                                <i class="fas fa-check mr-2"></i>
+                                정답 확인
+                            </button>
+                        </div>
+                        <div class="justify-self-end">
+                            <button id="nextQuestion" class="gep-btn-outline" disabled>
+                                다음 문제
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 시작 화면 -->
+                <div id="startScreen" class="text-center py-12">
+                    <div class="gep-card max-w-2xl mx-auto">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-graduation-cap text-2xl text-blue-600"></i>
+                        </div>
+                        <h2 class="gep-heading-2 mb-4">학습 준비 완료</h2>
+                        <p class="gep-text-large text-gray-600 mb-8">
+                            총 <span id="availableQuestions">1,440</span>개의 기출문제가 준비되어 있습니다.<br>
+                            학습을 시작하여 실전 감각을 키워보세요.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div class="stats-card">
+                                <div class="stats-number" id="totalQuestionsDisplay">1,440</div>
+                                <div class="stats-label">총 문제 수</div>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stats-number" id="completedQuestions">0</div>
+                                <div class="stats-label">완료된 문제</div>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stats-number" id="correctRate">0%</div>
+                                <div class="stats-label">정답률</div>
+                            </div>
+                        </div>
+                        <button id="startLearning" class="gep-btn-primary gep-btn-lg">
+                            <i class="fas fa-play mr-2"></i>
+                            학습 시작하기
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 회차 선택 화면 -->
+                <div id="sessionSelectScreen" class="hidden text-center py-12">
+                    <div class="gep-card max-w-2xl mx-auto">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-calendar-alt text-2xl text-green-600"></i>
+                        </div>
+                        <h2 class="gep-heading-2 mb-4">실습할 회차를 선택하세요</h2>
+                        <p class="gep-text-large text-gray-600 mb-8">
+                            20회부터 30회까지의 기출문제 중 원하는 회차를 선택하여 학습하세요.
+                        </p>
+                        
+                        <!-- 회차 선택 버튼들 -->
+                        <div class="grid grid-cols-5 gap-3 mb-8">
+                            <button class="session-btn" data-session="20">20회</button>
+                            <button class="session-btn" data-session="21">21회</button>
+                            <button class="session-btn" data-session="22">22회</button>
+                            <button class="session-btn" data-session="23">23회</button>
+                            <button class="session-btn" data-session="24">24회</button>
+                            <button class="session-btn" data-session="25">25회</button>
+                            <button class="session-btn" data-session="26">26회</button>
+                            <button class="session-btn" data-session="27">27회</button>
+                            <button class="session-btn" data-session="28">28회</button>
+                            <button class="session-btn" data-session="29">29회</button>
+                            <button class="session-btn" data-session="30">30회</button>
+                        </div>
+                        
+                        <!-- 선택된 회차 정보 -->
+                        <div id="selectedSessionInfo" class="hidden mb-6 p-4 bg-blue-50 rounded-lg">
+                            <div class="text-lg font-semibold text-blue-800">
+                                선택된 회차: <span id="selectedSessionText">-</span>
+                            </div>
+                            <div class="text-sm text-blue-600 mt-1">
+                                문제 수: <span id="selectedSessionCount">-</span>개
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 justify-center">
+                            <button id="backToStart" class="gep-btn-outline">
+                                <i class="fas fa-arrow-left mr-2"></i>
+                                뒤로 가기
+                            </button>
+                            <button id="startWithSession" class="gep-btn-primary gep-btn-lg" disabled>
+                                <i class="fas fa-play mr-2"></i>
+                                선택한 회차로 시작
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 결과 화면 -->
+                <div id="resultScreen" class="hidden text-center py-12">
+                    <div class="gep-card max-w-2xl mx-auto">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-trophy text-2xl text-green-600"></i>
+                        </div>
+                        <h2 class="gep-heading-2 mb-4">학습 완료!</h2>
+                        <p class="gep-text-large text-gray-600 mb-8">
+                            오늘의 학습을 완료했습니다.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div class="stats-card">
+                                <div class="stats-number" id="finalCorrect">0</div>
+                                <div class="stats-label">정답</div>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stats-number" id="finalIncorrect">0</div>
+                                <div class="stats-label">오답</div>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stats-number" id="finalRate">0%</div>
+                                <div class="stats-label">정답률</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 justify-center">
+                            <button id="restartQuiz" class="gep-btn-primary">
+                                <i class="fas fa-redo mr-2"></i>
+                                다시 시작
+                            </button>
+                            <button id="goHome" class="gep-btn-outline">
+                                <i class="fas fa-home mr-2"></i>
+                                홈으로
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="gep-container">
+            <div class="footer-content">
+                <p class="footer-text">© 2025 GEP - 손해보험중개사 시험 대비 플랫폼</p>
+                <p class="footer-text">과학적 학습 이론과 기출문제 권위성을 결합한 차세대 학습 플랫폼</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 스크립트 -->
+    <script src="{{ url_for('static', filename='js/core/data-manager.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/learning.js') }}"></script>
+</body>
+</html>

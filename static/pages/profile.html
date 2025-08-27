@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로필 - GEP</title>
+    <meta name="description" content="사용자 프로필 및 설정 관리">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GEP 스타일시트 -->
+    <link rel="stylesheet" href="../css/main.css">
+    
+    <!-- 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- 네비게이션은 JavaScript로 동적 생성 -->
+    
+    <!-- 메인 콘텐츠 -->
+    <main id="main-content" class="min-h-screen">
+        <!-- 헤더 섹션 -->
+        <section class="bg-white shadow-sm border-b border-gray-200">
+            <div class="gep-container">
+                <div class="py-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="gep-heading-2 text-gray-900">프로필</h1>
+                            <p class="gep-text-base text-gray-600 mt-2">계정 정보와 설정을 관리하세요</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <button id="save-profile-btn" class="gep-btn-primary gep-btn-sm">
+                                <i class="fas fa-save mr-2"></i>
+                                저장
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 프로필 콘텐츠 -->
+        <section class="py-8">
+            <div class="gep-container">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- 좌측: 프로필 정보 -->
+                    <div class="lg:col-span-2">
+                        <!-- 기본 정보 카드 -->
+                        <div class="gep-card mb-8">
+                            <div class="p-6">
+                                <h3 class="gep-heading-4 mb-6">기본 정보</h3>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <!-- 프로필 이미지 -->
+                                    <div class="md:col-span-2">
+                                        <div class="flex items-center space-x-6">
+                                            <div class="relative">
+                                                <div class="w-24 h-24 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden">
+                                                    <img id="profile-image" src="" alt="프로필 이미지" class="w-full h-full object-cover hidden">
+                                                    <i class="fas fa-user text-3xl text-gray-500" id="default-avatar"></i>
+                                                </div>
+                                                <button id="change-image-btn" class="absolute bottom-0 right-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                                    <i class="fas fa-camera text-sm"></i>
+                                                </button>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h4 class="text-lg font-semibold text-gray-900" id="user-name">사용자 이름</h4>
+                                                <p class="text-gray-600" id="user-email">user@example.com</p>
+                                                <p class="text-sm text-gray-500" id="join-date">가입일: 2025년 1월 1일</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 이름 -->
+                                    <div>
+                                        <label class="gep-label">이름</label>
+                                        <input type="text" id="first-name" class="gep-input" placeholder="이름을 입력하세요">
+                                    </div>
+                                    
+                                    <!-- 성 -->
+                                    <div>
+                                        <label class="gep-label">성</label>
+                                        <input type="text" id="last-name" class="gep-input" placeholder="성을 입력하세요">
+                                    </div>
+                                    
+                                    <!-- 이메일 -->
+                                    <div class="md:col-span-2">
+                                        <label class="gep-label">이메일</label>
+                                        <input type="email" id="email" class="gep-input" placeholder="이메일을 입력하세요">
+                                    </div>
+                                    
+                                    <!-- 전화번호 -->
+                                    <div class="md:col-span-2">
+                                        <label class="gep-label">전화번호</label>
+                                        <input type="tel" id="phone" class="gep-input" placeholder="전화번호를 입력하세요">
+                                    </div>
+                                    
+                                    <!-- 자기소개 -->
+                                    <div class="md:col-span-2">
+                                        <label class="gep-label">자기소개</label>
+                                        <textarea id="bio" class="gep-input" rows="3" placeholder="자기소개를 입력하세요"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 학습 설정 카드 -->
+                        <div class="gep-card mb-8">
+                            <div class="p-6">
+                                <h3 class="gep-heading-4 mb-6">학습 설정</h3>
+                                
+                                <div class="space-y-6">
+                                    <!-- 학습 목표 -->
+                                    <div>
+                                        <h4 class="font-medium text-gray-900 mb-3">학습 목표</h4>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="gep-label">일일 문제 풀이 목표</label>
+                                                <input type="number" id="daily-goal" class="gep-input" placeholder="20" min="1" max="100">
+                                            </div>
+                                            <div>
+                                                <label class="gep-label">주간 학습 시간 목표</label>
+                                                <input type="number" id="weekly-goal" class="gep-input" placeholder="10" min="1" max="50">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 알림 설정 -->
+                                    <div>
+                                        <h4 class="font-medium text-gray-900 mb-3">알림 설정</h4>
+                                        <div class="space-y-3">
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="email-notifications" class="mr-2" checked>
+                                                <span class="text-sm text-gray-700">이메일 알림</span>
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="goal-notifications" class="mr-2" checked>
+                                                <span class="text-sm text-gray-700">목표 달성 알림</span>
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="study-reminders" class="mr-2" checked>
+                                                <span class="text-sm text-gray-700">학습 리마인더</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 학습 환경 설정 -->
+                                    <div>
+                                        <h4 class="font-medium text-gray-900 mb-3">학습 환경</h4>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="gep-label">기본 시험 유형</label>
+                                                <select id="default-exam-type" class="gep-input">
+                                                    <option value="broker">보험중개사</option>
+                                                    <option value="assessor">보험심사역</option>
+                                                    <option value="adjuster">손해사정사</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="gep-label">문제 풀이 모드</label>
+                                                <select id="default-quiz-mode" class="gep-input">
+                                                    <option value="basic">기본 모드</option>
+                                                    <option value="random">랜덤 모드</option>
+                                                    <option value="exam">시험 모드</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 보안 설정 카드 -->
+                        <div class="gep-card">
+                            <div class="p-6">
+                                <h3 class="gep-heading-4 mb-6">보안 설정</h3>
+                                
+                                <div class="space-y-6">
+                                    <!-- 비밀번호 변경 -->
+                                    <div>
+                                        <h4 class="font-medium text-gray-900 mb-3">비밀번호 변경</h4>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="gep-label">현재 비밀번호</label>
+                                                <input type="password" id="current-password" class="gep-input" placeholder="현재 비밀번호">
+                                            </div>
+                                            <div>
+                                                <label class="gep-label">새 비밀번호</label>
+                                                <input type="password" id="new-password" class="gep-input" placeholder="새 비밀번호">
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <label class="gep-label">새 비밀번호 확인</label>
+                                            <input type="password" id="confirm-password" class="gep-input" placeholder="새 비밀번호 확인">
+                                        </div>
+                                        <button id="change-password-btn" class="gep-btn-primary gep-btn-sm mt-4">
+                                            비밀번호 변경
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- 2단계 인증 -->
+                                    <div>
+                                        <h4 class="font-medium text-gray-900 mb-3">2단계 인증</h4>
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <p class="text-sm text-gray-700">계정 보안을 위해 2단계 인증을 활성화하세요</p>
+                                                <p class="text-xs text-gray-500 mt-1">SMS 또는 이메일로 인증 코드를 받습니다</p>
+                                            </div>
+                                            <button id="enable-2fa-btn" class="gep-btn-outline gep-btn-sm">
+                                                2단계 인증 설정
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 로그인 세션 -->
+                                    <div>
+                                        <h4 class="font-medium text-gray-900 mb-3">로그인 세션</h4>
+                                        <div class="space-y-3">
+                                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                                <div>
+                                                    <p class="text-sm font-medium">현재 세션</p>
+                                                    <p class="text-xs text-gray-500">Chrome on Windows • 방금 전</p>
+                                                </div>
+                                                <span class="text-xs text-green-600 font-medium">활성</span>
+                                            </div>
+                                            <button id="view-sessions-btn" class="text-sm text-blue-600 hover:text-blue-700">
+                                                모든 세션 보기
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 우측: 사이드바 -->
+                    <div>
+                        <!-- 계정 상태 카드 -->
+                        <div class="gep-card mb-6">
+                            <div class="p-6">
+                                <h3 class="gep-heading-4 mb-4">계정 상태</h3>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">계정 유형</span>
+                                        <span class="text-sm font-medium text-blue-600">무료</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">가입일</span>
+                                        <span class="text-sm font-medium" id="account-join-date">2025.01.01</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">마지막 로그인</span>
+                                        <span class="text-sm font-medium" id="last-login">방금 전</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">계정 상태</span>
+                                        <span class="text-sm font-medium text-green-600">활성</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 pt-4 border-t border-gray-200">
+                                    <button id="upgrade-account-btn" class="w-full gep-btn-primary gep-btn-sm">
+                                        프리미엄으로 업그레이드
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 빠른 액션 -->
+                        <div class="gep-card mb-6">
+                            <div class="p-6">
+                                <h3 class="gep-heading-4 mb-4">빠른 액션</h3>
+                                
+                                <div class="space-y-3">
+                                    <button class="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-download text-blue-600 mr-3"></i>
+                                            <span class="text-sm font-medium">데이터 내보내기</span>
+                                        </div>
+                                    </button>
+                                    <button class="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-trash text-red-600 mr-3"></i>
+                                            <span class="text-sm font-medium">계정 삭제</span>
+                                        </div>
+                                    </button>
+                                    <button class="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-sign-out-alt text-gray-600 mr-3"></i>
+                                            <span class="text-sm font-medium">로그아웃</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 학습 요약 -->
+                        <div class="gep-card">
+                            <div class="p-6">
+                                <h3 class="gep-heading-4 mb-4">학습 요약</h3>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">총 학습 시간</span>
+                                        <span class="text-sm font-medium" id="total-study-time">0시간</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">풀이한 문제</span>
+                                        <span class="text-sm font-medium" id="total-questions-solved">0문제</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">평균 정답률</span>
+                                        <span class="text-sm font-medium" id="average-accuracy">0%</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">획득한 배지</span>
+                                        <span class="text-sm font-medium" id="badges-earned">0개</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 pt-4 border-t border-gray-200">
+                                    <button id="view-details-btn" class="w-full gep-btn-outline gep-btn-sm">
+                                        상세 통계 보기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2단계 인증 설정 모달 -->
+        <section id="2fa-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold">2단계 인증 설정</h3>
+                    <button id="close-2fa-modal" class="p-2 text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-qrcode text-4xl text-gray-400"></i>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">
+                            QR 코드를 스캔하여 2단계 인증을 설정하세요
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <label class="gep-label">인증 코드</label>
+                        <input type="text" id="2fa-code" class="gep-input" placeholder="6자리 코드를 입력하세요" maxlength="6">
+                    </div>
+                    
+                    <div class="flex space-x-3">
+                        <button id="verify-2fa-btn" class="gep-btn-primary flex-1">확인</button>
+                        <button id="cancel-2fa-btn" class="gep-btn-outline flex-1">취소</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 세션 관리 모달 -->
+        <section id="sessions-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold">로그인 세션 관리</h3>
+                    <button id="close-sessions-modal" class="p-2 text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="space-y-4 max-h-96 overflow-y-auto">
+                    <!-- 세션 목록은 JavaScript로 동적 생성 -->
+                </div>
+                
+                <div class="mt-6 pt-4 border-t border-gray-200">
+                    <button id="logout-all-btn" class="gep-btn-danger gep-btn-sm">
+                        모든 세션 로그아웃
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../js/core/data-manager.js"></script>
+    <script src="../js/ui/components.js"></script>
+    <script src="../js/ui/navigation.js"></script>
+    <script src="../js/ui/profile.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEP - 통계 | 보험 자격시험 준비 플랫폼</title>
+    <meta name="description" content="보험중개사, 보험심사역, 손해사정사 자격시험을 위한 종합 학습 플랫폼">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GEP 스타일시트 -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- 네비게이션 -->
+    <nav class="nav-container">
+        <div class="gep-container">
+            <div class="nav-content">
+                <div class="nav-brand">GEP</div>
+                <ul class="nav-links">
+                    <li><a href="/" class="nav-link">홈</a></li>
+                    <li><a href="/learning" class="nav-link">학습하기</a></li>
+                    <li><a href="/statistics" class="nav-link active">통계</a></li>
+                </ul>
+                <div class="text-sm text-gray-600">서비스 레벨: 무료</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 메인 콘텐츠 -->
+    <main>
+        <!-- 통계 헤더 -->
+        <section class="bg-white border-b border-gray-200">
+            <div class="gep-container">
+                <div class="py-8">
+                    <h1 class="gep-heading-2 mb-4">학습 통계</h1>
+                    <p class="gep-text-large text-gray-600">나의 학습 현황을 한눈에 확인하세요</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 전체 통계 -->
+        <section class="py-8">
+            <div class="gep-container">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="stats-card">
+                        <div class="stats-number" id="totalSessions">0</div>
+                        <div class="stats-label">총 학습 횟수</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number" id="totalQuestions">0</div>
+                        <div class="stats-label">총 문제 수</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number" id="totalCorrect">0</div>
+                        <div class="stats-label">총 정답 수</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number" id="overallRate">0%</div>
+                        <div class="stats-label">전체 정답률</div>
+                    </div>
+                </div>
+
+                <!-- 차트 영역 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <!-- 정답률 추이 -->
+                    <div class="gep-card">
+                        <h3 class="text-xl font-semibold mb-4">정답률 추이</h3>
+                        <canvas id="accuracyChart" width="400" height="200"></canvas>
+                    </div>
+
+                    <!-- 과목별 성취도 -->
+                    <div class="gep-card">
+                        <h3 class="text-xl font-semibold mb-4">과목별 성취도</h3>
+                        <canvas id="subjectChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- 최근 학습 기록 -->
+                <div class="gep-card">
+                    <h3 class="text-xl font-semibold mb-6">최근 학습 기록</h3>
+                    <div id="recentSessions" class="space-y-4">
+                        <!-- 학습 기록이 여기에 동적으로 추가됩니다 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="gep-container">
+            <div class="footer-content">
+                <p class="footer-text">© 2025 GEP - 손해보험중개사 시험 대비 플랫폼</p>
+                <p class="footer-text">과학적 학습 이론과 기출문제 권위성을 결합한 차세대 학습 플랫폼</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 스크립트 -->
+    <script src="../js/statistics.js"></script>
+</body>
+</html>

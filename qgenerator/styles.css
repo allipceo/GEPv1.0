@@ -1,0 +1,251 @@
+/* QGENERATOR 스타일 */
+
+/* 문제 목록 아이템 */
+.question-item {
+    @apply p-3 border border-gray-200 rounded-lg cursor-pointer transition-all duration-200;
+}
+
+.question-item:hover {
+    @apply bg-blue-50 border-blue-300;
+}
+
+.question-item.selected {
+    @apply bg-blue-100 border-blue-500;
+}
+
+.question-item.selected .question-title {
+    @apply text-blue-800 font-semibold;
+}
+
+/* 문제 제목 */
+.question-title {
+    @apply text-sm font-medium text-gray-800 mb-1;
+}
+
+.question-meta {
+    @apply text-xs text-gray-500;
+}
+
+/* 생성된 문제 카드 */
+.generated-question-card {
+    @apply p-4 border border-gray-200 rounded-lg bg-gray-50;
+}
+
+.generated-question-card .question-text {
+    @apply font-medium text-gray-800 mb-2;
+}
+
+.generated-question-card .options {
+    @apply space-y-1 mb-2;
+}
+
+.generated-question-card .option {
+    @apply text-sm text-gray-600;
+}
+
+.generated-question-card .correct-answer {
+    @apply text-green-600 font-semibold;
+}
+
+.generated-question-card .qcode {
+    @apply text-xs text-blue-600 font-mono bg-blue-100 px-2 py-1 rounded;
+}
+
+/* 상태 메시지 */
+.status-success {
+    @apply text-green-600;
+}
+
+.status-error {
+    @apply text-red-600;
+}
+
+.status-warning {
+    @apply text-yellow-600;
+}
+
+.status-info {
+    @apply text-blue-600;
+}
+
+/* 로딩 애니메이션 */
+.loading {
+    @apply animate-pulse;
+}
+
+/* 스크롤바 스타일링 */
+#questionList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#questionList::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded;
+}
+
+#questionList::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded;
+}
+
+#questionList::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+}
+
+/* 입력 필드 포커스 효과 */
+.focus-ring:focus {
+    @apply ring-2 ring-blue-500 ring-opacity-50;
+}
+
+/* 버튼 비활성화 상태 */
+button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+}
+
+/* 체크박스 및 라디오 버튼 커스터마이징 */
+input[type="checkbox"], input[type="radio"] {
+    @apply text-blue-600 focus:ring-blue-500;
+}
+
+/* 텍스트 영역 리사이즈 방지 */
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        @apply px-4;
+    }
+    
+    .grid {
+        @apply grid-cols-1;
+    }
+    
+    .flex {
+        @apply flex-col gap-2;
+    }
+}
+
+/* 다크 모드 지원 */
+@media (prefers-color-scheme: dark) {
+    .bg-white {
+        @apply bg-gray-800;
+    }
+    
+    .text-gray-800 {
+        @apply text-gray-200;
+    }
+    
+    .text-gray-600 {
+        @apply text-gray-300;
+    }
+    
+    .border-gray-200 {
+        @apply border-gray-600;
+    }
+    
+    .bg-gray-50 {
+        @apply bg-gray-700;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* 툴팁 스타일 */
+.tooltip {
+    @apply relative;
+}
+
+.tooltip:hover::after {
+    content: attr(data-tooltip);
+    @apply absolute z-10 px-2 py-1 text-xs text-white bg-gray-800 rounded shadow-lg;
+    @apply left-1/2 transform -translate-x-1/2 -translate-y-full;
+    @apply whitespace-nowrap;
+}
+
+/* 알림 메시지 */
+.notification {
+    @apply fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50;
+    @apply transform transition-all duration-300;
+}
+
+.notification.success {
+    @apply bg-green-500 text-white;
+}
+
+.notification.error {
+    @apply bg-red-500 text-white;
+}
+
+.notification.warning {
+    @apply bg-yellow-500 text-white;
+}
+
+.notification.info {
+    @apply bg-blue-500 text-white;
+}
+
+/* 모달 스타일 */
+.modal {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+}
+
+.modal-content {
+    @apply bg-white rounded-lg shadow-xl max-w-md w-full mx-4;
+}
+
+.modal-header {
+    @apply p-6 border-b border-gray-200;
+}
+
+.modal-body {
+    @apply p-6;
+}
+
+.modal-footer {
+    @apply p-6 border-t border-gray-200 flex justify-end gap-3;
+}
+
+/* 프로그레스 바 */
+.progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2;
+}
+
+.progress-fill {
+    @apply bg-blue-600 h-2 rounded-full transition-all duration-300;
+}
+
+/* 카운터 배지 */
+.counter-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.counter-badge.primary {
+    @apply bg-blue-100 text-blue-800;
+}
+
+.counter-badge.success {
+    @apply bg-green-100 text-green-800;
+}
+
+.counter-badge.warning {
+    @apply bg-yellow-100 text-yellow-800;
+}
+
+.counter-badge.danger {
+    @apply bg-red-100 text-red-800;
+}
