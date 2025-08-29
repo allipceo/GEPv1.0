@@ -3,8 +3,8 @@
     "version": "QManager Questions V1.0",
     "created_date": "2025-08-29",
     "description": "QManager로 관리되는 진위형 문제 데이터베이스",
-    "total_questions": 60,
-    "last_update": "2025-08-29T12:37:19.748Z"
+    "total_questions": 55,
+    "last_update": "2025-08-29T12:16:22.508Z"
   },
   "questions": {
     "ABAA-01": {
@@ -85,9 +85,9 @@
     },
     "ABAA-02": {
       "metadata": {
+        "total_slots": 8,
         "filled_slots": 4,
-        "last_updated": "2025-08-29T12:16:16.423Z",
-        "total_slots": 8
+        "last_updated": "2025-08-29T12:16:16.423Z"
       },
       "slots": {
         "B1": {
@@ -109,18 +109,18 @@
           "question": "제3보험회사는 재보험을 겸영할 수 있다."
         },
         "B3": {
+          "question": "",
           "answer": "",
-          "created_date": null,
           "exists": false,
-          "modified_date": null,
-          "question": ""
+          "created_date": null,
+          "modified_date": null
         },
         "B4": {
+          "question": "",
           "answer": "",
-          "created_date": null,
           "exists": false,
-          "modified_date": null,
-          "question": ""
+          "created_date": null,
+          "modified_date": null
         },
         "B5": {
           "answer": "O",
@@ -1080,72 +1080,6 @@
         }
       },
       "source_qcode": "ABBA-38"
-    },
-    "ABBA-85": {
-      "source_qcode": "ABBA-85",
-      "slots": {
-        "B1": {
-          "question": "보험가입경력요율의 보험가입경과기간의산정에있 어서모터바이크종합보험의가입기간은포함된다 .",
-          "answer": "O",
-          "exists": "O",
-          "created_date": "2025-08-29T12:36:21.556Z",
-          "modified_date": "2025-08-29T12:36:21.556Z"
-        },
-        "B2": {
-          "question": "외국에서의보험가입기간은보험가입경력요율의 보 험가입경과기간으로본다 .",
-          "answer": "O",
-          "exists": "O",
-          "created_date": "2025-08-29T12:36:22.660Z",
-          "modified_date": "2025-08-29T12:36:22.660Z"
-        },
-        "B3": {
-          "question": "교통법규위반경력요율의 평가기간은당년 4월30일부 터과거 3년간으로하며 ,보험료적용기간은당년 9 월1일부터익년 8월31일사이에책임이시작되는 계약에대하여적용한다",
-          "answer": "X",
-          "exists": "X",
-          "created_date": "2025-08-29T12:36:19.839Z",
-          "modified_date": "2025-08-29T12:36:19.839Z"
-        },
-        "B4": {
-          "question": "통법규위반경력요율의 적용에있어서할증대상법 규위반이중복될경우할증률을합산하여적용하되 , 최대 20%를한도로한다",
-          "answer": "O",
-          "exists": "O",
-          "created_date": "2025-08-29T12:36:23.980Z",
-          "modified_date": "2025-08-29T12:36:23.980Z"
-        },
-        "B5": {
-          "question": "교통법규위반경력요율의 적용에있어서할증대상법 규위반이중복될경우할증률을합산하여적용하되 , 최대 20%를한도로한다",
-          "answer": "O",
-          "exists": "O",
-          "created_date": "2025-08-29T12:37:13.970Z",
-          "modified_date": "2025-08-29T12:37:13.970Z"
-        },
-        "B6": {
-          "question": "",
-          "answer": "",
-          "exists": false,
-          "created_date": null,
-          "modified_date": null
-        },
-        "B7": {
-          "question": "",
-          "answer": "",
-          "exists": false,
-          "created_date": null,
-          "modified_date": null
-        },
-        "B8": {
-          "question": "",
-          "answer": "",
-          "exists": false,
-          "created_date": null,
-          "modified_date": null
-        }
-      },
-      "metadata": {
-        "total_slots": 8,
-        "filled_slots": 5,
-        "last_updated": "2025-08-29T12:37:13.970Z"
-      }
     }
   }
 }

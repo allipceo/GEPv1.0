@@ -150,6 +150,44 @@ def get_qmanager_questions():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route('/api/qmanager/upload-questions', methods=['POST'])
+def upload_qmanager_questions():
+    """QManager 진위형 문제 업로드 API - 자동 JSON 파일 업데이트"""
+    try:
+        # 현재 QManager 데이터 로드
+        qmanager_data = load_json_data(QMANAGER_QUESTIONS_FILE)
+        
+        if not qmanager_data:
+            return jsonify({
+                "success": False,
+                "error": "업로드할 QManager 데이터가 없습니다."
+            }), 400
+        
+        # 현재 날짜로 파일명 생성
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+        filename = f"qmanager_questions_{timestamp}.json"
+        
+        # 파일 저장
+        if save_json_data(filename, qmanager_data):
+            return jsonify({
+                "success": True,
+                "message": f"QManager 데이터가 성공적으로 업로드되었습니다.",
+                "filename": filename,
+                "total_questions": qmanager_data.get('metadata', {}).get('total_questions', 0),
+                "upload_time": datetime.now().isoformat()
+            })
+        else:
+            return jsonify({
+                "success": False,
+                "error": "파일 업로드 실패"
+            }), 500
+        
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500
+
 if __name__ == '__main__':
     print("🚀 QManager 독립 서버 시작...")
     print("📍 접속 URL: http://localhost:5001")
@@ -160,4 +198,5 @@ if __name__ == '__main__':
     print("   - /api/qmanager/generated-questions : 기존 진위형 문제")
     print("   - /api/qmanager/save-questions : QManager 진위형 문제 저장")
     print("   - /api/qmanager/qmanager-questions : QManager 진위형 문제 조회")
+    print("   - /api/qmanager/upload-questions : QManager 진위형 문제 업로드")
     app.run(debug=True, host='0.0.0.0', port=5001)

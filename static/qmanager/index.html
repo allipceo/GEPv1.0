@@ -31,24 +31,36 @@
 
     <!-- 메인 컨텐츠 -->
     <main class="container mx-auto px-6 py-6">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
             
-            <!-- 좌측: 기출문제 목록 -->
-            <div class="lg:col-span-1">
+            <!-- 좌측: 기출문제 목록 (더 넓게) -->
+            <div class="lg:col-span-2">
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <h2 class="text-xl font-semibold mb-4 text-gray-800">
                         📚 기출문제 목록
                     </h2>
                     
-                    <!-- 검색 필터 -->
-                    <div class="mb-4">
-                        <input type="text" id="search-input" 
-                               placeholder="기출문제 검색..." 
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <!-- 필터 영역 -->
+                    <div class="mb-4 space-y-3">
+                        <!-- 회차 선택 -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">회차 선택</label>
+                            <select id="round-filter" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">전체 회차</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 레이어(분야) 선택 -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">분야 선택</label>
+                            <select id="layer-filter" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">전체 분야</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <!-- 기출문제 스크롤 목록 -->
-                    <div class="max-h-96 overflow-y-auto border border-gray-200 rounded-lg">
+                    <div class="max-h-[500px] overflow-y-auto border border-gray-200 rounded-lg">
                         <div id="master-questions-list" class="divide-y divide-gray-200">
                             <!-- 기출문제들이 여기에 동적으로 로드됩니다 -->
                         </div>
@@ -56,16 +68,29 @@
                     
                     <!-- 통계 정보 -->
                     <div class="mt-4 p-3 bg-gray-50 rounded-lg">
-                        <div class="text-sm text-gray-600">
-                            <div>총 기출문제: <span id="total-master" class="font-semibold">0</span>개</div>
-                            <div>진위형 문제: <span id="total-derived" class="font-semibold">0</span>개</div>
+                        <div class="text-sm text-gray-600 space-y-2">
+                            <div class="flex justify-between">
+                                <span>총 기출문제:</span>
+                                <span id="total-master" class="font-semibold">0</span>개
+                            </div>
+                            <div class="flex justify-between">
+                                <span>전체 진위형 문제:</span>
+                                <span id="total-derived" class="font-semibold">0</span>개
+                            </div>
+                            <hr class="my-2">
+                            <div class="text-xs text-gray-500">
+                                <div class="font-medium mb-1">회차별 진위형 문제:</div>
+                                <div id="round-stats" class="space-y-1">
+                                    <!-- 회차별 통계가 여기에 동적으로 로드됩니다 -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- 우측: 8개 슬롯 관리 -->
-            <div class="lg:col-span-2">
+            <div class="lg:col-span-3">
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex items-center justify-between mb-6">
                         <h2 class="text-xl font-semibold text-gray-800">
@@ -134,3 +159,4 @@
     <script src="/qmanager/js/qmanager.js"></script>
 </body>
 </html>
+

@@ -3,15 +3,15 @@
     "version": "QManager Questions V1.0",
     "created_date": "2025-08-29",
     "description": "QManager로 관리되는 진위형 문제 데이터베이스",
-    "total_questions": 60,
-    "last_update": "2025-08-29T12:37:19.748Z"
+    "total_questions": 55,
+    "last_update": "2025-08-29T12:03:50.828Z"
   },
   "questions": {
     "ABAA-01": {
       "metadata": {
+        "total_slots": 8,
         "filled_slots": 7,
-        "last_updated": "2025-08-29T12:03:43.716Z",
-        "total_slots": 8
+        "last_updated": "2025-08-29T12:03:43.716Z"
       },
       "slots": {
         "B1": {
@@ -86,7 +86,11 @@
     "ABAA-02": {
       "metadata": {
         "filled_slots": 4,
-        "last_updated": "2025-08-29T12:16:16.423Z",
+        "last_updated": "2025-08-28T21:44:42.259734",
+        "master_answer": "1",
+        "master_layer": "관계법령",
+        "master_question": "다음은보험업겸영에관한기술이다 .옳지않은것은? \n①생명보험회사는 재보험을 겸영할수없다 . \n②제3보험회사는 재보험을 겸영할수있다 . \n③생명보험회사는 손해보험을 겸영할수없다 . \n④손해보험종목 전부를취급하는 손해보험회사가 질병을 원인으로 하는사망을제3보험의특약형식으로 담보 하는보험은겸영할수있다.",
+        "master_round": "20.0",
         "total_slots": 8
       },
       "slots": {
@@ -109,32 +113,36 @@
           "question": "제3보험회사는 재보험을 겸영할 수 있다."
         },
         "B3": {
-          "answer": "",
-          "created_date": null,
-          "exists": false,
-          "modified_date": null,
-          "question": ""
+          "answer": "O",
+          "created_date": "2025-08-27T14:00:00.000Z",
+          "exists": true,
+          "modified_date": "2025-08-28T21:44:42.259708",
+          "original_qcode": "ABAA-02-B3",
+          "parent_info": "20.0회 관계법령 2번",
+          "question": "생명보험회사는 손해보험을 겸영할 수 없다."
         },
         "B4": {
+          "answer": "O",
+          "created_date": "2025-08-28T09:20:26.689574",
+          "exists": true,
+          "modified_date": "2025-08-28T21:44:42.259721",
+          "original_qcode": "ABAA-02-B092026",
+          "parent_info": "20회 관계법령 2번",
+          "question": "ABAA-02에서 자동 생성된 테스트 문제입니다. (생성시간: 092026)"
+        },
+        "B5": {
           "answer": "",
           "created_date": null,
           "exists": false,
           "modified_date": null,
           "question": ""
         },
-        "B5": {
-          "answer": "O",
-          "created_date": "2025-08-29T12:13:57.775Z",
-          "exists": "O",
-          "modified_date": "2025-08-29T12:13:57.775Z",
-          "question": "제3보험회사는 재보험을 겸영할수있다 . ③생명보험회사는 손해보험을 겸영할수없다"
-        },
         "B6": {
-          "answer": "O",
-          "created_date": "2025-08-29T12:13:55.943Z",
-          "exists": "O",
-          "modified_date": "2025-08-29T12:13:55.943Z",
-          "question": "해보험종목 전부를취급하는 손해보험회사가 질병을 원인으로 하는사망을제3보험의특약형식으로 담보 하는보험은겸영할수있다."
+          "answer": "",
+          "created_date": null,
+          "exists": false,
+          "modified_date": null,
+          "question": ""
         },
         "B7": {
           "answer": "",
@@ -1080,72 +1088,6 @@
         }
       },
       "source_qcode": "ABBA-38"
-    },
-    "ABBA-85": {
-      "source_qcode": "ABBA-85",
-      "slots": {
-        "B1": {
-          "question": "보험가입경력요율의 보험가입경과기간의산정에있 어서모터바이크종합보험의가입기간은포함된다 .",
-          "answer": "O",
-          "exists": "O",
-          "created_date": "2025-08-29T12:36:21.556Z",
-          "modified_date": "2025-08-29T12:36:21.556Z"
-        },
-        "B2": {
-          "question": "외국에서의보험가입기간은보험가입경력요율의 보 험가입경과기간으로본다 .",
-          "answer": "O",
-          "exists": "O",
-          "created_date": "2025-08-29T12:36:22.660Z",
-          "modified_date": "2025-08-29T12:36:22.660Z"
-        },
-        "B3": {
-          "question": "교통법규위반경력요율의 평가기간은당년 4월30일부 터과거 3년간으로하며 ,보험료적용기간은당년 9 월1일부터익년 8월31일사이에책임이시작되는 계약에대하여적용한다",
-          "answer": "X",
-          "exists": "X",
-          "created_date": "2025-08-29T12:36:19.839Z",
-          "modified_date": "2025-08-29T12:36:19.839Z"
-        },
-        "B4": {
-          "question": "통법규위반경력요율의 적용에있어서할증대상법 규위반이중복될경우할증률을합산하여적용하되 , 최대 20%를한도로한다",
-          "answer": "O",
-          "exists": "O",
-          "created_date": "2025-08-29T12:36:23.980Z",
-          "modified_date": "2025-08-29T12:36:23.980Z"
-        },
-        "B5": {
-          "question": "교통법규위반경력요율의 적용에있어서할증대상법 규위반이중복될경우할증률을합산하여적용하되 , 최대 20%를한도로한다",
-          "answer": "O",
-          "exists": "O",
-          "created_date": "2025-08-29T12:37:13.970Z",
-          "modified_date": "2025-08-29T12:37:13.970Z"
-        },
-        "B6": {
-          "question": "",
-          "answer": "",
-          "exists": false,
-          "created_date": null,
-          "modified_date": null
-        },
-        "B7": {
-          "question": "",
-          "answer": "",
-          "exists": false,
-          "created_date": null,
-          "modified_date": null
-        },
-        "B8": {
-          "question": "",
-          "answer": "",
-          "exists": false,
-          "created_date": null,
-          "modified_date": null
-        }
-      },
-      "metadata": {
-        "total_slots": 8,
-        "filled_slots": 5,
-        "last_updated": "2025-08-29T12:37:13.970Z"
-      }
     }
   }
 }

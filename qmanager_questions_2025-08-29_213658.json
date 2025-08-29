@@ -3,8 +3,8 @@
     "version": "QManager Questions V1.0",
     "created_date": "2025-08-29",
     "description": "QManager로 관리되는 진위형 문제 데이터베이스",
-    "total_questions": 60,
-    "last_update": "2025-08-29T12:37:19.748Z"
+    "total_questions": 59,
+    "last_update": "2025-08-29T12:36:47.872Z"
   },
   "questions": {
     "ABAA-01": {
@@ -1113,11 +1113,11 @@
           "modified_date": "2025-08-29T12:36:23.980Z"
         },
         "B5": {
-          "question": "교통법규위반경력요율의 적용에있어서할증대상법 규위반이중복될경우할증률을합산하여적용하되 , 최대 20%를한도로한다",
-          "answer": "O",
-          "exists": "O",
-          "created_date": "2025-08-29T12:37:13.970Z",
-          "modified_date": "2025-08-29T12:37:13.970Z"
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
         },
         "B6": {
           "question": "",
@@ -1143,8 +1143,8 @@
       },
       "metadata": {
         "total_slots": 8,
-        "filled_slots": 5,
-        "last_updated": "2025-08-29T12:37:13.970Z"
+        "filled_slots": 4,
+        "last_updated": "2025-08-29T12:36:23.980Z"
       }
     }
   }

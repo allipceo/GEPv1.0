@@ -16,7 +16,8 @@ class QManager {
             statusIndicator: document.getElementById('status-indicator'),
             saveBtn: document.getElementById('save-btn'),
             uploadBtn: document.getElementById('upload-btn'),
-            searchInput: document.getElementById('search-input'),
+            roundFilter: document.getElementById('round-filter'),
+            layerFilter: document.getElementById('layer-filter'),
             masterQuestionsList: document.getElementById('master-questions-list'),
             selectedQuestion: document.getElementById('selected-question'),
             selectedQuestionInfo: document.getElementById('selected-question-info'),
@@ -27,6 +28,7 @@ class QManager {
             progressBar: document.getElementById('progress-bar'),
             totalMaster: document.getElementById('total-master'),
             totalDerived: document.getElementById('total-derived'),
+            roundStats: document.getElementById('round-stats'),
             notificationModal: document.getElementById('notification-modal'),
             modalIcon: document.getElementById('modal-icon'),
             modalTitle: document.getElementById('modal-title'),
@@ -94,6 +96,7 @@ class QManager {
      * UI 초기화
      */
     initializeUI() {
+        this.initializeFilters();
         this.renderMasterQuestionsList();
         this.updateStatistics();
         this.createSlotsContainer();
@@ -103,9 +106,13 @@ class QManager {
      * 이벤트 리스너 등록
      */
     bindEvents() {
-        // 검색 기능
-        this.elements.searchInput.addEventListener('input', (e) => {
-            this.filterMasterQuestions(e.target.value);
+        // 필터 기능
+        this.elements.roundFilter.addEventListener('change', () => {
+            this.filterMasterQuestions();
+        });
+        
+        this.elements.layerFilter.addEventListener('change', () => {
+            this.filterMasterQuestions();
         });
         
         // 저장 버튼
@@ -147,20 +154,33 @@ class QManager {
             item.dataset.qcode = question.QCODE;
             
             item.innerHTML = `
-                <div class="flex items-center justify-between">
-                    <div class="flex-1">
-                        <div class="font-medium text-gray-900">${question.QCODE}</div>
-                        <div class="text-sm text-gray-600 line-clamp-2">${question.QUESTION}</div>
-                        <div class="text-xs text-gray-500 mt-1">
-                            답: ${question.ANSWER} | 회차: ${question.EROUND} | 분야: ${question.LAYER1}
+                <input type="radio" name="master-question" class="question-radio" id="radio-${question.QCODE}">
+                <div class="question-content">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <div class="font-medium text-gray-900">${question.QCODE}</div>
+                            <div class="question-text">${question.QUESTION}</div>
+                            <div class="text-xs text-gray-500 mt-1">
+                                답: ${question.ANSWER} | 회차: ${this.formatRound(question.EROUND)} | 분야: ${question.LAYER1}
+                            </div>
                         </div>
+                        ${hasDerived ? '<span class="text-green-500 text-xs">✓</span>' : ''}
                     </div>
-                    ${hasDerived ? '<span class="text-green-500 text-xs">✓</span>' : ''}
                 </div>
             `;
             
-            item.addEventListener('click', () => {
+            // 라디오 버튼 클릭 이벤트
+            const radio = item.querySelector('.question-radio');
+            radio.addEventListener('change', () => {
                 this.selectMasterQuestion(question.QCODE);
+            });
+            
+            // 전체 아이템 클릭 이벤트 (라디오 버튼 선택)
+            item.addEventListener('click', (e) => {
+                if (e.target !== radio) {
+                    radio.checked = true;
+                    this.selectMasterQuestion(question.QCODE);
+                }
             });
             
             container.appendChild(item);
@@ -168,9 +188,48 @@ class QManager {
     }
     
     /**
-     * 기출문제 검색 필터링
+     * 회차 포맷팅 함수
      */
-    filterMasterQuestions(searchTerm) {
+    formatRound(round) {
+        return round.includes('.0') ? round.replace('.0', '') : round;
+    }
+    
+    /**
+     * 필터 초기화
+     */
+    initializeFilters() {
+        // 회차 필터 옵션 생성
+        const rounds = [...new Set(this.masterData.map(q => q.EROUND))].sort();
+        const roundFilter = this.elements.roundFilter;
+        roundFilter.innerHTML = '<option value="">전체 회차</option>';
+        rounds.forEach(round => {
+            const option = document.createElement('option');
+            option.value = round;
+            // 회차 표시 형식 수정: "22.0" → "22회"
+            const displayRound = round.includes('.0') ? round.replace('.0', '') : round;
+            option.textContent = `${displayRound}회`;
+            roundFilter.appendChild(option);
+        });
+        
+        // 레이어 필터 옵션 생성
+        const layers = [...new Set(this.masterData.map(q => q.LAYER1))].sort();
+        const layerFilter = this.elements.layerFilter;
+        layerFilter.innerHTML = '<option value="">전체 분야</option>';
+        layers.forEach(layer => {
+            const option = document.createElement('option');
+            option.value = layer;
+            option.textContent = layer;
+            layerFilter.appendChild(option);
+        });
+    }
+    
+    /**
+     * 기출문제 필터링
+     */
+    filterMasterQuestions() {
+        const selectedRound = this.elements.roundFilter.value;
+        const selectedLayer = this.elements.layerFilter.value;
+        
         const items = this.elements.masterQuestionsList.querySelectorAll('.question-item');
         
         items.forEach(item => {
@@ -179,11 +238,15 @@ class QManager {
             
             if (!question) return;
             
-            const searchText = `${qcode} ${question.QUESTION} ${question.LAYER1}`.toLowerCase();
-            const matches = searchText.includes(searchTerm.toLowerCase());
+            const roundMatch = !selectedRound || question.EROUND === selectedRound;
+            const layerMatch = !selectedLayer || question.LAYER1 === selectedLayer;
             
-            item.style.display = matches ? 'block' : 'none';
+            item.style.display = (roundMatch && layerMatch) ? 'block' : 'none';
         });
+        
+        // 필터링된 결과 수 표시
+        const visibleItems = this.elements.masterQuestionsList.querySelectorAll('.question-item[style*="block"], .question-item:not([style*="none"])');
+        console.log(`🔍 필터링 결과: ${visibleItems.length}개 문제 표시`);
     }
     
     /**
@@ -194,12 +257,16 @@ class QManager {
         const prevSelected = this.elements.masterQuestionsList.querySelector('.question-item.selected');
         if (prevSelected) {
             prevSelected.classList.remove('selected');
+            const prevRadio = prevSelected.querySelector('.question-radio');
+            if (prevRadio) prevRadio.checked = false;
         }
         
         // 새 선택 표시
         const newSelected = this.elements.masterQuestionsList.querySelector(`[data-qcode="${qcode}"]`);
         if (newSelected) {
             newSelected.classList.add('selected');
+            const newRadio = newSelected.querySelector('.question-radio');
+            if (newRadio) newRadio.checked = true;
         }
         
         this.selectedQuestion = this.masterData.find(q => q.QCODE === qcode);
@@ -225,7 +292,7 @@ class QManager {
             <div class="space-y-2">
                 <div><strong>문제:</strong> ${info.QUESTION}</div>
                 <div><strong>답안:</strong> ${info.ANSWER}</div>
-                <div><strong>회차:</strong> ${info.EROUND}</div>
+                <div><strong>회차:</strong> ${this.formatRound(info.EROUND)}</div>
                 <div><strong>분야:</strong> ${info.LAYER1}</div>
             </div>
         `;
@@ -546,6 +613,49 @@ class QManager {
         }, 0);
         
         this.elements.totalDerived.textContent = totalDerived;
+        
+        // 회차별 통계 업데이트
+        this.updateRoundStatistics();
+    }
+    
+    /**
+     * 회차별 통계 업데이트
+     */
+    updateRoundStatistics() {
+        // 회차별 진위형 문제 수 계산
+        const roundStats = {};
+        
+        Object.keys(this.qmanagerData).forEach(qcode => {
+            const question = this.masterData.find(q => q.QCODE === qcode);
+            if (question) {
+                const round = question.EROUND;
+                if (!roundStats[round]) {
+                    roundStats[round] = 0;
+                }
+                roundStats[round] += this.qmanagerData[qcode].metadata.filled_slots;
+            }
+        });
+        
+        // 통계 표시 업데이트
+        const roundStatsContainer = this.elements.roundStats;
+        roundStatsContainer.innerHTML = '';
+        
+        const sortedRounds = Object.keys(roundStats).sort();
+        
+        if (sortedRounds.length === 0) {
+            roundStatsContainer.innerHTML = '<div class="text-gray-400">생성된 진위형 문제가 없습니다.</div>';
+        } else {
+            sortedRounds.forEach(round => {
+                const count = roundStats[round];
+                const div = document.createElement('div');
+                div.className = 'flex justify-between items-center';
+                div.innerHTML = `
+                    <span>${this.formatRound(round)}회:</span>
+                    <span class="font-semibold text-blue-600">${count}개</span>
+                `;
+                roundStatsContainer.appendChild(div);
+            });
+        }
     }
     
     /**
@@ -617,32 +727,26 @@ class QManager {
         try {
             this.updateStatus('업로드 중...');
             
-            // 현재 QManager 데이터를 JSON 파일로 다운로드
-            const downloadData = {
-                metadata: {
-                    version: "QManager Questions V1.0",
-                    created_date: new Date().toISOString().split('T')[0],
-                    description: "QManager로 관리되는 진위형 문제 데이터베이스",
-                    total_questions: Object.values(this.qmanagerData).reduce((total, q) => total + q.metadata.filled_slots, 0),
-                    last_update: new Date().toISOString()
+            // 새로운 업로드 API 호출
+            const response = await fetch('/api/qmanager/upload-questions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                questions: this.qmanagerData
-            };
-            
-            const blob = new Blob([JSON.stringify(downloadData, null, 2)], {
-                type: 'application/json'
+                body: JSON.stringify({})
             });
             
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `qmanager_questions_${new Date().toISOString().split('T')[0]}.json`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            if (!response.ok) {
+                throw new Error('업로드 API 호출 실패');
+            }
             
-            this.showNotification('success', '업로드 완료! JSON 파일이 다운로드되었습니다.');
+            const result = await response.json();
+            
+            if (result.success) {
+                this.showNotification('success', `업로드 완료! ${result.filename} 파일이 생성되었습니다.`);
+            } else {
+                throw new Error(result.error || '업로드 실패');
+            }
             
         } catch (error) {
             console.error('업로드 오류:', error);
