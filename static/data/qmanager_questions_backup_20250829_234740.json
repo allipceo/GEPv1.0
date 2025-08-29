@@ -7,7 +7,7 @@
     "last_update": "2025-08-29T12:37:19.748Z"
   },
   "questions": {
-    "AB20AA-01": {
+    "ABAA-01": {
       "metadata": {
         "filled_slots": 7,
         "last_updated": "2025-08-29T12:03:43.716Z",
@@ -81,9 +81,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB20AA-01"
+      "source_qcode": "ABAA-01"
     },
-    "AB20AA-02": {
+    "ABAA-02": {
       "metadata": {
         "filled_slots": 4,
         "last_updated": "2025-08-29T12:16:16.423Z",
@@ -151,9 +151,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB20AA-02"
+      "source_qcode": "ABAA-02"
     },
-    "AB20AA-03": {
+    "ABAA-03": {
       "metadata": {
         "filled_slots": 5,
         "last_updated": "2025-08-28T21:44:42.259827",
@@ -231,9 +231,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB20AA-03"
+      "source_qcode": "ABAA-03"
     },
-    "AB20AA-04": {
+    "ABAA-04": {
       "metadata": {
         "filled_slots": 5,
         "last_updated": "2025-08-28T21:44:42.259916",
@@ -311,9 +311,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB20AA-04"
+      "source_qcode": "ABAA-04"
     },
-    "AB22AA-161": {
+    "ABAA-161": {
       "metadata": {
         "filled_slots": 7,
         "last_updated": "2025-08-28T21:44:42.259411",
@@ -395,9 +395,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB22AA-161"
+      "source_qcode": "ABAA-161"
     },
-    "AB20AA-23": {
+    "ABAA-23": {
       "metadata": {
         "filled_slots": 2,
         "last_updated": "2025-08-28T21:44:42.259981",
@@ -469,9 +469,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB20AA-23"
+      "source_qcode": "ABAA-23"
     },
-    "AB23AA-241": {
+    "ABAA-241": {
       "metadata": {
         "filled_slots": 4,
         "last_updated": "2025-08-28T21:44:42.259639",
@@ -547,9 +547,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB23AA-241"
+      "source_qcode": "ABAA-241"
     },
-    "AB20AA-40": {
+    "ABAA-40": {
       "metadata": {
         "filled_slots": 4,
         "last_updated": "2025-08-28T21:44:42.260602",
@@ -625,9 +625,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB20AA-40"
+      "source_qcode": "ABAA-40"
     },
-    "AB21AA-81": {
+    "ABAA-81": {
       "metadata": {
         "filled_slots": 6,
         "last_updated": "2025-08-28T21:44:42.259193",
@@ -707,9 +707,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB21AA-81"
+      "source_qcode": "ABAA-81"
     },
-    "AB21AA-82": {
+    "ABAA-82": {
       "metadata": {
         "filled_slots": 2,
         "last_updated": "2025-08-28T21:44:42.260086",
@@ -781,9 +781,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB21AA-82"
+      "source_qcode": "ABAA-82"
     },
-    "AB21AA-83": {
+    "ABAA-83": {
       "metadata": {
         "filled_slots": 2,
         "last_updated": "2025-08-28T21:44:42.260207",
@@ -855,9 +855,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB21AA-83"
+      "source_qcode": "ABAA-83"
     },
-    "AB21AA-90": {
+    "ABAA-90": {
       "metadata": {
         "filled_slots": 2,
         "last_updated": "2025-08-28T21:44:42.260511",
@@ -929,9 +929,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB21AA-90"
+      "source_qcode": "ABAA-90"
     },
-    "AB20BA-37": {
+    "ABBA-37": {
       "metadata": {
         "filled_slots": 4,
         "last_updated": "2025-08-28T21:44:42.260401",
@@ -1007,9 +1007,9 @@
           "question": ""
         }
       },
-      "source_qcode": "AB20BA-37"
+      "source_qcode": "ABBA-37"
     },
-    "AB20BA-38": {
+    "ABBA-38": {
       "metadata": {
         "filled_slots": 1,
         "last_updated": "2025-08-28T21:44:42.260281",
@@ -1079,10 +1079,10 @@
           "question": ""
         }
       },
-      "source_qcode": "AB20BA-38"
+      "source_qcode": "ABBA-38"
     },
-    "AB22BA-85": {
-      "source_qcode": "AB22BA-85",
+    "ABBA-85": {
+      "source_qcode": "ABBA-85",
       "slots": {
         "B1": {
           "question": "보험가입경력요율의 보험가입경과기간의산정에있 어서모터바이크종합보험의가입기간은포함된다 .",

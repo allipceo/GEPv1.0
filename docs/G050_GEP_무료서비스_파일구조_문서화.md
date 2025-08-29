@@ -1,8 +1,9 @@
-# GEP 무료서비스 파일 구조 문서화 (G050)
+# GEP 무료서비스 파일 구조 문서화 (G050) - AB20AA 체계 업데이트
 
 ## 📋 **문서 정보**
 **문서 번호**: G050  
 **작성일**: 2025년 7월 17일  
+**업데이트일**: 2025년 8월 29일 (AB20AA 체계 반영)  
 **목적**: GEP 무료서비스에서 개발된 폴더와 파일 구조 정리  
 **대상**: 개발 참고 및 유지보수용  
 
@@ -21,7 +22,9 @@ GEPv1.0/
 ├── 📄 qmanager_server.py             # QManager 독립 서버
 ├── 📄 requirements.txt               # Python 의존성
 ├── 📄 Procfile                       # 배포 설정
-└── 📄 runtime.txt                    # Python 버전 설정
+├── 📄 runtime.txt                    # Python 버전 설정
+├── 📄 update_layer2_data.py          # LAYER2 데이터 업데이트 ✅ 완료
+└── 📄 qcode_migration.py             # QCODE 마이그레이션 ✅ 완료
 ```
 
 ---
@@ -56,8 +59,8 @@ static/
 │   ├── 📁 ui/                        # UI 관련
 │   └── 📁 utils/                     # 유틸리티
 ├── 📁 data/                          # 데이터 파일
-│   ├── 📄 gep_master_v1.0.json       # 1,440개 기출문제 (1.4MB)
-│   ├── 📄 qmanager_questions.json    # QManager 진위형 문제
+│   ├── 📄 gep_master_v1.0.json       # 1,440개 기출문제 (AB20AA 체계) ✅ 업데이트
+│   ├── 📄 qmanager_questions.json    # QManager 진위형 문제 (AB20AA 체계) ✅ 업데이트
 │   ├── 📄 gep_generated_questions.json # 생성된 문제
 │   └── 📄 qmanager_structure.json    # QManager 구조
 └── 📁 qmanager/                      # QManager 독립 시스템
@@ -92,6 +95,12 @@ qgenerator/
 | `app.py` | 6.7KB | GEP 메인 Flask 서버 | ✅ 완료 |
 | `qmanager_server.py` | 7.3KB | QManager 독립 서버 | ✅ 완료 |
 
+### **🔄 데이터 업데이트 스크립트** ✅ 완료
+| 파일명 | 크기 | 설명 | 상태 |
+|--------|------|------|------|
+| `update_layer2_data.py` | 8.2KB | LAYER2 데이터 업데이트 | ✅ 완료 |
+| `qcode_migration.py` | 9.1KB | QCODE 마이그레이션 (AB20AA) | ✅ 완료 |
+
 ### **🌐 HTML 템플릿 파일**
 | 파일명 | 크기 | 설명 | 상태 |
 |--------|------|------|------|
@@ -121,11 +130,11 @@ qgenerator/
 | `static/qmanager/js/qmanager.js` | 29KB | QManager 로직 | ✅ 완료 |
 | `qgenerator/js/qgenerator.js` | 17KB | QGENERATOR 로직 | ✅ 완료 |
 
-### **📊 데이터 파일**
+### **📊 데이터 파일 (AB20AA 체계)** ✅ 업데이트
 | 파일명 | 크기 | 설명 | 상태 |
 |--------|------|------|------|
-| `static/data/gep_master_v1.0.json` | 1.4MB | 1,440개 기출문제 | ✅ 완료 |
-| `static/data/qmanager_questions.json` | 47KB | QManager 진위형 문제 | ✅ 완료 |
+| `static/data/gep_master_v1.0.json` | 1.4MB | 1,440개 기출문제 (AB20AA 체계) | ✅ 업데이트 |
+| `static/data/qmanager_questions.json` | 47KB | QManager 진위형 문제 (AB20AA 체계) | ✅ 업데이트 |
 | `static/data/gep_generated_questions.json` | 27KB | 생성된 문제 | ✅ 완료 |
 | `static/data/qmanager_structure.json` | 4.7KB | QManager 구조 | ✅ 완료 |
 
@@ -154,7 +163,7 @@ qgenerator/
 ├── static/js/learning.js            # 학습 로직
 ├── static/js/statistics.js          # 통계 로직
 ├── static/js/gep-system.js          # 시스템 통합
-└── static/data/gep_master_v1.0.json # 기출문제 데이터
+└── static/data/gep_master_v1.0.json # 기출문제 데이터 (AB20AA 체계)
 ```
 
 ### **2. QManager 독립 시스템**
@@ -164,7 +173,7 @@ qgenerator/
 ├── static/qmanager/index.html       # QManager 페이지
 ├── static/qmanager/js/qmanager.js   # QManager 로직
 ├── static/qmanager/css/styles.css   # QManager 스타일
-├── static/data/qmanager_questions.json # 진위형 문제 데이터
+├── static/data/qmanager_questions.json # 진위형 문제 데이터 (AB20AA 체계)
 └── static/data/qmanager_structure.json # 구조 데이터
 ```
 
@@ -178,12 +187,20 @@ qgenerator/
 └── qgenerator/README.md             # QGENERATOR 문서
 ```
 
+### **4. 데이터 업데이트 시스템** ✅ 완료
+```
+✅ 완료된 파일들:
+├── update_layer2_data.py            # LAYER2 데이터 업데이트
+├── qcode_migration.py               # QCODE 마이그레이션 (AB20AA)
+└── 참고자료/GEP_MASTER_V1.0(LAYER2포함).XLSX # 소스 엑셀 파일
+```
+
 ---
 
 ## 📈 **파일 크기 및 복잡도 분석**
 
 ### **가장 큰 파일들 (기능별)**
-1. **데이터 파일**: `gep_master_v1.0.json` (1.4MB) - 1,440개 기출문제
+1. **데이터 파일**: `gep_master_v1.0.json` (1.4MB) - 1,440개 기출문제 (AB20AA 체계)
 2. **JavaScript 로직**: `qmanager.js` (29KB) - QManager 복잡한 로직
 3. **학습 시스템**: `learning.js` (28KB) - 학습 페이지 전체 로직
 4. **HTML 페이지**: `qgenerator/index.html` (27KB) - QGENERATOR 복잡한 UI
@@ -193,6 +210,7 @@ qgenerator/
 - **통계 기능**: `statistics.js` + `statistics.html` (17KB)
 - **QManager**: `qmanager.js` + `qmanager/index.html` (37KB)
 - **QGENERATOR**: `qgenerator.js` + `qgenerator/index.html` (44KB)
+- **데이터 업데이트**: `update_layer2_data.py` + `qcode_migration.py` (17KB)
 
 ---
 
@@ -207,9 +225,11 @@ qgenerator/
 └── .git/                           # Git 버전 관리
 ```
 
-### **데이터 변환 및 마이그레이션**
+### **데이터 변환 및 마이그레이션** ✅ 완료
 ```
 ✅ 완료된 유틸리티들:
+├── update_layer2_data.py            # LAYER2 데이터 업데이트 ✅ 완료
+├── qcode_migration.py               # QCODE 마이그레이션 (AB20AA) ✅ 완료
 ├── qmanager_migration.py            # QManager 데이터 마이그레이션
 ├── excel_to_gep_json.py            # 엑셀 → JSON 변환
 ├── convert_gep_excel_to_json.py    # GEP 데이터 변환
@@ -227,14 +247,15 @@ qgenerator/
 - **JavaScript 파일**: 8개 (150KB+)
 - **CSS 파일**: 5개 (45KB+)
 - **HTML 파일**: 6개 (70KB+)
-- **Python 파일**: 3개 (20KB+)
+- **Python 파일**: 5개 (30KB+) ✅ 증가
 
 ### **기능별 완성도**
 - **GEP 메인 시스템**: 100% 완료
 - **QManager 시스템**: 100% 완료
 - **QGENERATOR 시스템**: 100% 완료
-- **데이터 시스템**: 100% 완료
+- **데이터 시스템**: 100% 완료 (AB20AA 체계 적용)
 - **UI/UX 시스템**: 100% 완료
+- **데이터 업데이트 시스템**: 100% 완료 ✅
 
 ---
 
@@ -244,13 +265,45 @@ qgenerator/
 1. **GEP 메인 시스템**: 완전한 학습 플랫폼
 2. **QManager**: 독립형 진위형 문제 관리 시스템
 3. **QGENERATOR**: 독립형 문제 생성 시스템
-4. **데이터 관리**: 1,440개 기출문제 완전 관리
+4. **데이터 관리**: 1,440개 기출문제 완전 관리 (AB20AA 체계)
+5. **데이터 업데이트**: LAYER2 업데이트 및 QCODE 마이그레이션 완료 ✅
 
 ### **기술적 성과**
 - **모듈화**: 3개 독립 시스템으로 분리
 - **확장성**: 새로운 기능 추가 용이
 - **유지보수성**: 명확한 파일 구조
 - **성능**: 최적화된 데이터 로딩
+- **데이터 무결성**: AB20AA QCODE 체계로 완벽한 고유성 보장 ✅
+
+### **AB20AA 체계 적용 성과** ✅
+- **완벽한 고유성**: 회차별 구분으로 중복 불가능
+- **확장성**: 새로운 회차 추가 시 자동 고유성 보장
+- **데이터 무결성**: 단일 QCODE 체계로 충돌 방지
+- **개발 효율성**: 검증된 Q매니저 시스템 재활용
+- **유지보수성**: 일관된 구조로 관리 용이
+
+---
+
+## 🔄 **최근 업데이트 내역**
+
+### **2025년 8월 29일 - AB20AA 체계 적용** ✅
+- **LAYER2 데이터 업데이트**: 179개 필드 업데이트 완료
+- **QCODE 마이그레이션**: ABAA-XX → AB20AA-XX 체계 변경
+- **JSON 파일 업데이트**: `gep_master_v1.0.json`, `qmanager_questions.json`
+- **엑셀 파일**: 조대표님 조정 예정
+- **문서 업데이트**: G026, G049, G050 문서 AB20AA 체계 반영
+
+### **새로운 QCODE 체계 예시**
+```python
+# 기출문제 QCODE (새로운 체계)
+AB20AA-01: 20회 보험중개사-손해보험-관계법령-기출문제-01번
+AB21AA-01: 21회 보험중개사-손해보험-관계법령-기출문제-01번
+AB30AA-01: 30회 보험중개사-손해보험-관계법령-기출문제-01번
+
+# 진위형 문제 QCODE (Q매니저 체계)
+AB20AA-01-B1: 20회 관계법령 1번 기출문제의 1번 진위형 문제
+AB20AA-01-B2: 20회 관계법령 1번 기출문제의 2번 진위형 문제
+```
 
 ---
 
@@ -258,9 +311,10 @@ qgenerator/
 
 **문서 번호**: G050  
 **작성일**: 2025년 7월 17일  
+**업데이트일**: 2025년 8월 29일 (AB20AA 체계 반영)  
 **작성자**: 서대리 (Cursor AI)  
 **검토자**: 조대표님  
-**버전**: V1.0  
+**버전**: V2.0 (AB20AA 체계 업데이트)  
 **상태**: 파일 구조 문서화 완료
 
 **이 문서는 GEP 무료서비스의 완전한 파일 구조를 기록하며, 향후 개발 및 유지보수의 기준 문서입니다!** 🚀

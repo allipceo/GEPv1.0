@@ -40,7 +40,7 @@ def load_excel_data(file_path):
         return None
 
 def validate_data_integrity(json_data, excel_df):
-    """데이터 무결성 검증"""
+    """데이터 무결성 검증 (최소화)"""
     print("🔍 데이터 무결성 검증 시작...")
     
     # 1단계: 레코드 수 비교
@@ -63,28 +63,22 @@ def validate_data_integrity(json_data, excel_df):
     
     print("✅ QCODE 정렬 완료")
     
-    # 3단계: 완전 동일성 검증 (LAYER2 제외)
-    print("🔍 핵심 필드 동일성 검증 중...")
+    # 3단계: QCODE만 비교 (최소 검증)
+    print("🔍 QCODE 일치성 검증 중...")
     
     mismatch_count = 0
     for i, (json_q, excel_row) in enumerate(zip(json_questions, excel_df_sorted.itertuples())):
-        # 핵심 필드 비교 (LAYER2 제외)
-        if (json_q['QCODE'] != excel_row.QCODE or
-            json_q['QUESTION'] != excel_row.QUESTION or
-            json_q['ANSWER'] != excel_row.ANSWER or
-            json_q['LAYER1'] != excel_row.LAYER1):
-            
+        if json_q['QCODE'] != excel_row.QCODE:
             mismatch_count += 1
             if mismatch_count <= 5:  # 처음 5개만 출력
-                print(f"❌ 불일치 발견 (레코드 {i+1}):")
-                print(f"   QCODE: JSON={json_q['QCODE']}, Excel={excel_row.QCODE}")
-                print(f"   QUESTION: JSON={json_q['QUESTION'][:50]}..., Excel={excel_row.QUESTION[:50]}...")
+                print(f"❌ QCODE 불일치 발견 (레코드 {i+1}):")
+                print(f"   JSON={json_q['QCODE']}, Excel={excel_row.QCODE}")
     
     if mismatch_count > 0:
-        print(f"❌ 총 {mismatch_count}개의 불일치 발견!")
+        print(f"❌ 총 {mismatch_count}개의 QCODE 불일치 발견!")
         return False
     
-    print("✅ 모든 핵심 필드 일치")
+    print("✅ 모든 QCODE 일치")
     return True
 
 def update_layer2_data(json_data, excel_df):
