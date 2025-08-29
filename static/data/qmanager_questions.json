@@ -1,0 +1,1099 @@
+{
+  "metadata": {
+    "version": "QManager Questions V1.0",
+    "created_date": "2025-08-28",
+    "description": "QManager로 관리되는 진위형 문제 데이터베이스",
+    "total_questions": 53,
+    "last_update": "2025-08-28T21:44:42.258845",
+    "migrated_from": "gep_generated_questions.json",
+    "migration_date": "2025-08-28T21:44:42.258871"
+  },
+  "questions": {
+    "ABAA-01": {
+      "source_qcode": "ABAA-01",
+      "slots": {
+        "B1": {
+          "question": "보험중개사 시험은 손해보험 분야의 시험이다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.038347",
+          "modified_date": "2025-08-28T21:44:42.258920",
+          "original_qcode": "ABAA-01-B1",
+          "parent_info": "20.0회 관계법령 1번"
+        },
+        "B2": {
+          "question": "20.0회 시험의 관계법령 과목은 1번 문제가 있다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.043895",
+          "modified_date": "2025-08-28T21:44:42.258940",
+          "original_qcode": "ABAA-01-B2",
+          "parent_info": "20.0회 관계법령 1번"
+        },
+        "B3": {
+          "question": "ABAA-01는 A 타입의 문제이다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.044333",
+          "modified_date": "2025-08-28T21:44:42.258955",
+          "original_qcode": "ABAA-01-B3",
+          "parent_info": "20.0회 관계법령 1번"
+        },
+        "B4": {
+          "question": "보험업법의내용과관련하여타당하지않은것은? \n①보험자의 설명의무는 상법보험편에도 규정되어 있고... 이 문제의 정답은 2번이 아니다.",
+          "answer": "X",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.044945",
+          "modified_date": "2025-08-28T21:44:42.258968",
+          "original_qcode": "ABAA-01-B4",
+          "parent_info": "20.0회 관계법령 1번"
+        },
+        "B5": {
+          "question": "관계법령 과목의 문제는 모두 손해보험 분야에 속한다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.045944",
+          "modified_date": "2025-08-28T21:44:42.258982",
+          "original_qcode": "ABAA-01-B5",
+          "parent_info": "20.0회 관계법령 1번"
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 5,
+        "last_updated": "2025-08-28T21:44:42.259005",
+        "master_question": "보험업법의내용과관련하여타당하지않은것은? \n①보험자의 설명의무는 상법보험편에도 규정되어 있고, 보험업법에도 규정되어 있다. \n②보험업법에 규정된적합성의 원칙은모든보험의영역에 적용된다 . \n③보험상품에 대하여모집광고와 관련하여 준수해야 할 사항은보험업법에 규정되어 있다. \n④보험업법은 보험회사 또는보험을모집하는 자의중복 계약체결에대한확인의무를 규정하고 있다.",
+        "master_answer": "2",
+        "master_round": "20.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABAA-81": {
+      "source_qcode": "ABAA-81",
+      "slots": {
+        "B1": {
+          "question": "보험중개사 시험은 손해보험 분야의 시험이다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.050392",
+          "modified_date": "2025-08-28T21:44:42.259040",
+          "original_qcode": "ABAA-81-B1",
+          "parent_info": "21.0회 관계법령 1번"
+        },
+        "B2": {
+          "question": "21.0회 시험의 관계법령 과목은 1번 문제가 있다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.050995",
+          "modified_date": "2025-08-28T21:44:42.259053",
+          "original_qcode": "ABAA-81-B2",
+          "parent_info": "21.0회 관계법령 1번"
+        },
+        "B3": {
+          "question": "ABAA-81는 A 타입의 문제이다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.051449",
+          "modified_date": "2025-08-28T21:44:42.259065",
+          "original_qcode": "ABAA-81-B3",
+          "parent_info": "21.0회 관계법령 1번"
+        },
+        "B4": {
+          "question": "다음중보험업법상의손해보험상품에 해당하는것이 아닌것은? \n①운송보험계약 \n②권리보험계약 \n③... 이 문제의 정답은 3번이 아니다.",
+          "answer": "X",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.052072",
+          "modified_date": "2025-08-28T21:44:42.259078",
+          "original_qcode": "ABAA-81-B4",
+          "parent_info": "21.0회 관계법령 1번"
+        },
+        "B5": {
+          "question": "관계법령 과목의 문제는 모두 손해보험 분야에 속한다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.062347",
+          "modified_date": "2025-08-28T21:44:42.259105",
+          "original_qcode": "ABAA-81-B5",
+          "parent_info": "21.0회 관계법령 1번"
+        },
+        "B6": {
+          "question": "관계법령 과목의 문제는 모두 손해보험 분야에 속한다.",
+          "answer": "X",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.066625",
+          "modified_date": "2025-08-28T21:44:42.259118",
+          "original_qcode": "ABAA-81-B6",
+          "parent_info": "21.0회 관계법령 1번"
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 6,
+        "last_updated": "2025-08-28T21:44:42.259193",
+        "master_question": "다음중보험업법상의손해보험상품에 해당하는것이 아닌것은? \n①운송보험계약 \n②권리보험계약 \n③간병보험계약 \n④비용보험계약",
+        "master_answer": "3",
+        "master_round": "21.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABAA-161": {
+      "source_qcode": "ABAA-161",
+      "slots": {
+        "B1": {
+          "question": "보험중개사 시험은 손해보험 분야의 시험이다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.069151",
+          "modified_date": "2025-08-28T21:44:42.259231",
+          "original_qcode": "ABAA-161-B1",
+          "parent_info": "22.0회 관계법령 1번"
+        },
+        "B2": {
+          "question": "22.0회 시험의 관계법령 과목은 1번 문제가 있다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.070088",
+          "modified_date": "2025-08-28T21:44:42.259244",
+          "original_qcode": "ABAA-161-B2",
+          "parent_info": "22.0회 관계법령 1번"
+        },
+        "B3": {
+          "question": "ABAA-161는 A 타입의 문제이다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.074508",
+          "modified_date": "2025-08-28T21:44:42.259256",
+          "original_qcode": "ABAA-161-B3",
+          "parent_info": "22.0회 관계법령 1번"
+        },
+        "B4": {
+          "question": "다음 중 보험업법상 “위험보장을 목적으로 사람의 질병ㆍ상해 또는 이에 따른 간병에 관하여 ... 이 문제의 정답은 3번이 아니다.",
+          "answer": "X",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.075007",
+          "modified_date": "2025-08-28T21:44:42.259270",
+          "original_qcode": "ABAA-161-B4",
+          "parent_info": "22.0회 관계법령 1번"
+        },
+        "B5": {
+          "question": "관계법령 과목의 문제는 모두 손해보험 분야에 속한다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.076052",
+          "modified_date": "2025-08-28T21:44:42.259283",
+          "original_qcode": "ABAA-161-B5",
+          "parent_info": "22.0회 관계법령 1번"
+        },
+        "B6": {
+          "question": "관계법령 과목의 문제는 모두 손해보험 분야에 속한다.",
+          "answer": "X",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.076575",
+          "modified_date": "2025-08-28T21:44:42.259296",
+          "original_qcode": "ABAA-161-B6",
+          "parent_info": "22.0회 관계법령 1번"
+        },
+        "B7": {
+          "question": "관계법령 과목의 문제는 모두 손해보험 분야에 속한다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T07:56:24.078451",
+          "modified_date": "2025-08-28T21:44:42.259309",
+          "original_qcode": "ABAA-161-B7",
+          "parent_info": "22.0회 관계법령 1번"
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 7,
+        "last_updated": "2025-08-28T21:44:42.259411",
+        "master_question": "다음 중 보험업법상 “위험보장을 목적으로 사람의 질병ㆍ상해 또는 이에 따른 간병에 관하여 금전 및 그 밖의 급여를 지급할 것을 약속하고 대가를 수수하는 계약으로서 대통령령으로 정하는 계약”이라고 정의되는 보험상품은 ? \n①생명보험상품 \n②손해보험상품 \n③제3보험상품 \n④제4보험상품",
+        "master_answer": "3",
+        "master_round": "22.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABAA-241": {
+      "source_qcode": "ABAA-241",
+      "slots": {
+        "B1": {
+          "question": "보험회사는 원칙적으로 생명보험업과 손해보험업을 겸영하지 못한다",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-26T23:56:08.144Z",
+          "modified_date": "2025-08-28T21:44:42.259452",
+          "original_qcode": "ABAA-241-B1",
+          "parent_info": "23회 관계법령 1번"
+        },
+        "B2": {
+          "question": "보험회사는 그 상호 또는 명칭 중에 주로 경영하는 보험업의 종류를 표시하여야 한다",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-26T23:56:08.144Z",
+          "modified_date": "2025-08-28T21:44:42.259467",
+          "original_qcode": "ABAA-241-B2",
+          "parent_info": "23회 관계법령 1번"
+        },
+        "B3": {
+          "question": "보험회사는 보험업에 부수하는 업무를 하려면 그 업무를 하려는 날의 7일 전까지 금융위원회에 신고 하여야 한다",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-26T23:56:08.144Z",
+          "modified_date": "2025-08-28T21:44:42.259480",
+          "original_qcode": "ABAA-241-B3",
+          "parent_info": "23회 관계법령 1번"
+        },
+        "B4": {
+          "question": "보험업을 경영하려는 자는 예비허가를 신청할 수 없다 .",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-26T23:56:08.144Z",
+          "modified_date": "2025-08-28T21:44:42.259493",
+          "original_qcode": "ABAA-241-B4",
+          "parent_info": "23회 관계법령 1번"
+        },
+        "B5": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 4,
+        "last_updated": "2025-08-28T21:44:42.259639",
+        "master_question": "보험업의 허가에 관한 설명으로 옳지 않은 것은? \n①보험회사는 원칙적으로 생명보험업과 손해보험업을 겸영하지 못한다 . \n②보험회사는 그 상호 또는 명칭 중에 주로 경영하는 보험업의 종류를 표시하여야 한다 . \n③보험회사는 보험업에 부수하는 업무를 하려면 그 업무를 하려는 날의 7일 전까지 금융위원회에 신고 하여야 한다 . \n④보험업을 경영하려는 자는 예비허가를 신청할 수 없다 .",
+        "master_answer": "4",
+        "master_round": "23.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABAA-02": {
+      "source_qcode": "ABAA-02",
+      "slots": {
+        "B1": {
+          "question": "생명보험회사는 재보험을 겸영할 수 없다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T14:00:00.000Z",
+          "modified_date": "2025-08-28T21:44:42.259678",
+          "original_qcode": "ABAA-02-B1",
+          "parent_info": "20.0회 관계법령 2번"
+        },
+        "B2": {
+          "question": "제3보험회사는 재보험을 겸영할 수 있다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T14:00:00.000Z",
+          "modified_date": "2025-08-28T21:44:42.259695",
+          "original_qcode": "ABAA-02-B2",
+          "parent_info": "20.0회 관계법령 2번"
+        },
+        "B3": {
+          "question": "생명보험회사는 손해보험을 겸영할 수 없다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T14:00:00.000Z",
+          "modified_date": "2025-08-28T21:44:42.259708",
+          "original_qcode": "ABAA-02-B3",
+          "parent_info": "20.0회 관계법령 2번"
+        },
+        "B4": {
+          "question": "ABAA-02에서 자동 생성된 테스트 문제입니다. (생성시간: 092026)",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:20:26.689574",
+          "modified_date": "2025-08-28T21:44:42.259721",
+          "original_qcode": "ABAA-02-B092026",
+          "parent_info": "20회 관계법령 2번"
+        },
+        "B5": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 4,
+        "last_updated": "2025-08-28T21:44:42.259734",
+        "master_question": "다음은보험업겸영에관한기술이다 .옳지않은것은? \n①생명보험회사는 재보험을 겸영할수없다 . \n②제3보험회사는 재보험을 겸영할수있다 . \n③생명보험회사는 손해보험을 겸영할수없다 . \n④손해보험종목 전부를취급하는 손해보험회사가 질병을 원인으로 하는사망을제3보험의특약형식으로 담보 하는보험은겸영할수있다.",
+        "master_answer": "1",
+        "master_round": "20.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABAA-03": {
+      "source_qcode": "ABAA-03",
+      "slots": {
+        "B1": {
+          "question": "보험업법에 따른 보험회사의 설립은 금융감독원의 허가를 받아야 한다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T14:00:00.000Z",
+          "modified_date": "2025-08-28T21:44:42.259762",
+          "original_qcode": "ABAA-03-B1",
+          "parent_info": "20.0회 관계법령 3번"
+        },
+        "B2": {
+          "question": "보험업법에 따른 보험중개사는 보험업무를 겸영할 수 없다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T14:00:00.000Z",
+          "modified_date": "2025-08-28T21:44:42.259780",
+          "original_qcode": "ABAA-03-B2",
+          "parent_info": "20.0회 관계법령 3번"
+        },
+        "B3": {
+          "question": "보험업법에 따른 보험설계사는 보험업무를 겸영할 수 있다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T14:00:00.000Z",
+          "modified_date": "2025-08-28T21:44:42.259792",
+          "original_qcode": "ABAA-03-B3",
+          "parent_info": "20.0회 관계법령 3번"
+        },
+        "B4": {
+          "question": "보험업법에 따른 보험대리점은 보험업무를 겸영할 수 있다.",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-27T14:00:00.000Z",
+          "modified_date": "2025-08-28T21:44:42.259804",
+          "original_qcode": "ABAA-03-B4",
+          "parent_info": "20.0회 관계법령 3번"
+        },
+        "B5": {
+          "question": "테스트용 진위형 문제입니다. (자동 생성)",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T10:16:01.426824",
+          "modified_date": "2025-08-28T21:44:42.259816",
+          "original_qcode": "ABAA-03-B999",
+          "parent_info": "20회 관계법령 3번"
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 5,
+        "last_updated": "2025-08-28T21:44:42.259827",
+        "master_question": "보험업의허가에관한설명으로옳지않은것은? \n①금융위원회는 허가에조건을붙일수있다 . \n②허가를받을수있는자는주식회사와 상호회사로 제한한다 . \n③본허가를 신청하려는 자는미리금융위원회에 예비허가를 신청할수있다 . \n④생명보험에 해당하는 보험종목 전부에관하여금융 위원회의 허가를받은자는간병보험에 대한허가를 받은것으로본다 .",
+        "master_answer": "2",
+        "master_round": "20.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABAA-04": {
+      "source_qcode": "ABAA-04",
+      "slots": {
+        "B1": {
+          "question": "다음은보험회사의내부통제기준에관한기술이다 .옳은 것은? ①보험회사는 준법감시인을 1인이상두어야한다 . ②",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:10:31.788Z",
+          "modified_date": "2025-08-28T21:44:42.259855",
+          "original_qcode": "ABAA-04-B1",
+          "parent_info": "20회 관계법령 4번"
+        },
+        "B2": {
+          "question": "다음은보험회사의내부통제기준에관한기술이다 .옳은 것은? ①보험회사는 준법감시인을 1인이상두어야한다 . ②",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:11:15.544Z",
+          "modified_date": "2025-08-28T21:44:42.259868",
+          "original_qcode": "ABAA-04-B1",
+          "parent_info": "20회 관계법령 4번"
+        },
+        "B3": {
+          "question": "②보험회사는 준법감시인을 임면하려면 주주총회의 의결을 거쳐야한다. ③준법감시인은 자산운용에 관한업무를하는직무를 담당할수있다",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:11:15.544Z",
+          "modified_date": "2025-08-28T21:44:42.259881",
+          "original_qcode": "ABAA-04-B3",
+          "parent_info": "20회 관계법령 4번"
+        },
+        "B4": {
+          "question": "다음은보험회사의내부통제기준에관한기술이다 .옳은 것은? ①보험회사는 준법감시인을 1인이상두어야한다 . ②",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:11:23.177Z",
+          "modified_date": "2025-08-28T21:44:42.259893",
+          "original_qcode": "ABAA-04-B1",
+          "parent_info": "20회 관계법령 4번"
+        },
+        "B5": {
+          "question": "②보험회사는 준법감시인을 임면하려면 주주총회의 의결을 거쳐야한다. ③준법감시인은 자산운용에 관한업무를하는직무를 담당할수있다",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:11:23.177Z",
+          "modified_date": "2025-08-28T21:44:42.259905",
+          "original_qcode": "ABAA-04-B3",
+          "parent_info": "20회 관계법령 4번"
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 5,
+        "last_updated": "2025-08-28T21:44:42.259916",
+        "master_question": "다음은보험회사의내부통제기준에관한기술이다 .옳은 것은? \n①보험회사는 준법감시인을 1인이상두어야한다 . \n②보험회사는 준법감시인을 임면하려면 주주총회의 의결을 거쳐야한다. \n③준법감시인은 자산운용에 관한업무를하는직무를 담당할수있다 . \n④금융관계법령을위반하여 금융감독원장으로부터 경고를받은자도 3년이지나면준법감시인이 될수 있다 .",
+        "master_answer": "1",
+        "master_round": "20.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABAA-23": {
+      "source_qcode": "ABAA-23",
+      "slots": {
+        "B1": {
+          "question": "책임보험에서 영업책임보험의 경우에피보험자의 대리인또는그 사업감독자의 제3자에대한책임도보험의목적에 포함된다 .",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:12:32.455Z",
+          "modified_date": "2025-08-28T21:44:42.259951",
+          "original_qcode": "ABAA-23-B3",
+          "parent_info": "20회 관계법령 23번"
+        },
+        "B2": {
+          "question": "판례는피해자의 직접청구권의 성격에대해보험금청구 권설을취한다 .",
+          "answer": "X",
+          "exists": true,
+          "created_date": "2025-08-28T09:12:32.455Z",
+          "modified_date": "2025-08-28T21:44:42.259964",
+          "original_qcode": "ABAA-23-B4",
+          "parent_info": "20회 관계법령 23번"
+        },
+        "B3": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B4": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B5": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 2,
+        "last_updated": "2025-08-28T21:44:42.259981",
+        "master_question": "책임보험에관한설명으로틀린것은? \n①영업책임보험의 경우에피보험자의 대리인또는그 사업감독자의 제3자에대한책임도보험의목적에 포함된다 . \n②판례는피해자의 직접청구권의 성격에대해보험금청구 권설을취한다 . \n③보험자는 특별한약정이없으면채무확정의 통지를 받은날로부터 10일내에보험금액을 지급하여야 한다. \n④피보험자가 보험자의 동의없이제3자에대하여변제를 한경우에는 보험자가 그책임을면하는합의가있는 때에도그행위가현저하게 부당한것이아니면 보험자는 보상할책임을면하지못한다 .",
+        "master_answer": "2",
+        "master_round": "20.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABAA-82": {
+      "source_qcode": "ABAA-82",
+      "slots": {
+        "B1": {
+          "question": "다음중보험업법상의생명보험상품에 해당하지않는 것은 생명보험계약이다",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:50:50.157Z",
+          "modified_date": "2025-08-28T21:44:42.260010",
+          "original_qcode": "ABAA-82-B1",
+          "parent_info": "21회 관계법령 2번"
+        },
+        "B2": {
+          "question": "다음중보험업법상의생명보험상품에 해당하지않는 것은 생명보험계약이다",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:50:56.499Z",
+          "modified_date": "2025-08-28T21:44:42.260024",
+          "original_qcode": "ABAA-82-B2",
+          "parent_info": "21회 관계법령 2번"
+        },
+        "B3": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B4": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B5": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 2,
+        "last_updated": "2025-08-28T21:44:42.260086",
+        "master_question": "다음중보험업법상의생명보험상품에 해당하지않는 것은? \n①생명보험계약 \n②연금보험계약 \n③퇴직보험계약 \n④장기요양보험계약",
+        "master_answer": "4",
+        "master_round": "21.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABAA-83": {
+      "source_qcode": "ABAA-83",
+      "slots": {
+        "B1": {
+          "question": "험회사가아닌자와보험계약을체결할수있는경우를 모두모은것은? a.외국보험회사와 생명보험계약을 체결하는 경우 b.외국보험회사와 수입적하보험계약을 체결하는 경우",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:51:34.516Z",
+          "modified_date": "2025-08-28T21:44:42.260116",
+          "original_qcode": "ABAA-83-B1",
+          "parent_info": "21회 관계법령 3번"
+        },
+        "B2": {
+          "question": "험회사가아닌자와보험계약을체결할수있는경우를 모두모은것은? a.외국보험회사와 생명보험계약을 체결하는 경우 b.외국보험회사와 수입적하보험계약을 체결하는 경우",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T09:51:37.401Z",
+          "modified_date": "2025-08-28T21:44:42.260130",
+          "original_qcode": "ABAA-83-B2",
+          "parent_info": "21회 관계법령 3번"
+        },
+        "B3": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B4": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B5": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 2,
+        "last_updated": "2025-08-28T21:44:42.260207",
+        "master_question": "보험회사가아닌자와보험계약을체결할수있는경우를 모두모은것은? a.외국보험회사와 생명보험계약을 체결하는 경우 b.외국보험회사와 수입적하보험계약을 체결하는 경우 c.외국보험회사와 장기상해보험계약을 체결하는 경우 d.외국보험회사와 단기상해보험계약을 체결하는 경우 \n①a,b,c\n②b,c,d\n③a,c,d\n④a,b,d",
+        "master_answer": "1",
+        "master_round": "21.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABBA-38": {
+      "source_qcode": "ABBA-38",
+      "slots": {
+        "B1": {
+          "question": "연금저축손해보험의 계약자배당금지급에관한내용이다 . 틀린것은? ①회사는계약해당일이 속하는사업년도 말에연금자산의 운용수익을 계산하여 운용수익이 적립이율에 기초한 운용수익에 미달하는 경우금융감독원장이 전하는방법에 따라계산한금액을계약자배당준비금으로 적립한다",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T10:34:47.848Z",
+          "modified_date": "2025-08-28T21:44:42.260236",
+          "original_qcode": "ABBA-38-B1",
+          "parent_info": "20회 손보1부 38번"
+        },
+        "B2": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B3": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B4": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B5": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 1,
+        "last_updated": "2025-08-28T21:44:42.260281",
+        "master_question": "연금저축손해보험의 계약자배당금지급에관한내용이다 . 틀린것은? \n①회사는계약해당일이 속하는사업년도 말에연금자산의 운용수익을 계산하여 운용수익이 적립이율에 기초한 운용수익에 미달하는 경우금융감독원장이 전하는방법에 따라계산한금액을계약자배당준비금으로 적립한다 . \n②계약이종료하는 경우보험금또는환급금에 더하여 지급한다 . \n③연금지급개시일이 도래하기이전까지 적립한계약자 배당준비금은 연금지급방법과 동일하게 증액연금으로 지급한다 . \n④연금지급개시일 이후에발생된계약자배당준비금은 금융감독원장이 정하는방법에따라계약자배당금을 계산하여 매회연금에더하여가산연금으로 지급한다 .",
+        "master_answer": "1",
+        "master_round": "20.0",
+        "master_layer": "손보1부"
+      }
+    },
+    "ABBA-37": {
+      "source_qcode": "ABBA-37",
+      "slots": {
+        "B1": {
+          "question": "다음은질병 상해보험표준약관의보험계약의성립에 관한사항이다 .( )안에 들어갈말로알맞은것은? 회사가제1회보험료를 받고승낙을거절한경우에는 거절 통지와함께받은금액을계약자에게돌려드리며,보험료를 받은기간에대하여 ( )+1%를연단위복리로계산한 금액을더하여지급합니다 . ①예정이율",
+          "answer": "X",
+          "exists": true,
+          "created_date": "2025-08-28T10:43:42.936Z",
+          "modified_date": "2025-08-28T21:44:42.260317",
+          "original_qcode": "ABBA-37-B1",
+          "parent_info": "20회 손보1부 37번"
+        },
+        "B2": {
+          "question": "사가제1회보험료를 받고승낙을거절한경우에는 거절 통지와함께받은금액을계약자에게돌려드리며,보험료를 받은기간에대하여 ( )+1%를연단위복리로계산한 금액을더하여지급합니다 . ①예정이율 ②표준이율",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T10:43:42.936Z",
+          "modified_date": "2025-08-28T21:44:42.260330",
+          "original_qcode": "ABBA-37-B2",
+          "parent_info": "20회 손보1부 37번"
+        },
+        "B3": {
+          "question": "다음은질병 상해보험표준약관의보험계약의성립에 관한사항이다 .( )안에 들어갈말로알맞은것은? 회사가제1회보험료를 받고승낙을거절한경우에는 거절 통지와함께받은금액을계약자에게돌려드리며,보험료를 받은기간에대하여 ( )+1%를연단위복리로계산한 금액을더하여지급합니다 . ①예정이율",
+          "answer": "X",
+          "exists": true,
+          "created_date": "2025-08-28T10:43:46.089Z",
+          "modified_date": "2025-08-28T21:44:42.260342",
+          "original_qcode": "ABBA-37-B3",
+          "parent_info": "20회 손보1부 37번"
+        },
+        "B4": {
+          "question": "사가제1회보험료를 받고승낙을거절한경우에는 거절 통지와함께받은금액을계약자에게돌려드리며,보험료를 받은기간에대하여 ( )+1%를연단위복리로계산한 금액을더하여지급합니다 . ①예정이율 ②표준이율",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T10:43:46.089Z",
+          "modified_date": "2025-08-28T21:44:42.260355",
+          "original_qcode": "ABBA-37-B4",
+          "parent_info": "20회 손보1부 37번"
+        },
+        "B5": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 4,
+        "last_updated": "2025-08-28T21:44:42.260401",
+        "master_question": "다음은질병 상해보험표준약관의보험계약의성립에 관한사항이다 .( )안에 들어갈말로알맞은것은? 회사가제1회보험료를 받고승낙을거절한경우에는 거절 통지와함께받은금액을계약자에게돌려드리며,보험료를 받은기간에대하여 ( )+1%를연단위복리로계산한 금액을더하여지급합니다 . \n①예정이율 \n②표준이율 \n③공시이율 \n④보험계약대출이율",
+        "master_answer": "2",
+        "master_round": "20.0",
+        "master_layer": "손보1부"
+      }
+    },
+    "ABAA-90": {
+      "source_qcode": "ABAA-90",
+      "slots": {
+        "B1": {
+          "question": "음은보험안내자료에관한기술이다 .옳지않은것은? ①보험안내자료에는 보험설계사 ·보험대리점 또는 보험중개사의 이름·상호나명칭을명백하고 알기 쉽게적어야한다",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T10:48:34.127Z",
+          "modified_date": "2025-08-28T21:44:42.260441",
+          "original_qcode": "ABAA-90-B1",
+          "parent_info": "21회 관계법령 10번"
+        },
+        "B2": {
+          "question": "음은보험안내자료에관한기술이다 .옳지않은것은? ①보험안내자료에는 보험설계사 ·보험대리점 또는 보험중개사의 이름·상호나명칭을명백하고 알기 쉽게적어야한다",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T10:48:43.505Z",
+          "modified_date": "2025-08-28T21:44:42.260454",
+          "original_qcode": "ABAA-90-B2",
+          "parent_info": "21회 관계법령 10번"
+        },
+        "B3": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B4": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B5": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 2,
+        "last_updated": "2025-08-28T21:44:42.260511",
+        "master_question": "다음은보험안내자료에관한기술이다 .옳지않은것은? \n①보험안내자료에는 보험설계사 ·보험대리점 또는 보험중개사의 이름·상호나명칭을명백하고 알기 쉽게적어야한다 . \n②보험안내자료에는 보험회사의 장래의이익배당또는 잉여금분배에대한예상에관한사항을명백하고 알기쉽게적어야한다 . \n③보험안내자료에는 예금자보호와 관련된 사항을 명백하고 알기쉽게적어야한다 . \n④보험안내자료에 보험회사의 자산과부채에관한 사항을적는경우에는 금융위원회에 제출한서류에 적힌사항과다른내용의것을적지못한다 .",
+        "master_answer": "2",
+        "master_round": "21.0",
+        "master_layer": "관계법령"
+      }
+    },
+    "ABAA-40": {
+      "source_qcode": "ABAA-40",
+      "slots": {
+        "B1": {
+          "question": "다음중해상운송인의선적에관한의무에해당하지 않는것은? ①선박회항의무 ②선적준비완료통지의무 ③대박의무 (",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T10:54:31.802Z",
+          "modified_date": "2025-08-28T21:44:42.260544",
+          "original_qcode": "ABAA-40-B1",
+          "parent_info": "20회 관계법령 40번"
+        },
+        "B2": {
+          "question": "①선박회항의무 ②선적준비완료통지의무 ③대박의무 (待泊義務 ) ④감항능력주의의무",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T10:54:31.802Z",
+          "modified_date": "2025-08-28T21:44:42.260558",
+          "original_qcode": "ABAA-40-B2",
+          "parent_info": "20회 관계법령 40번"
+        },
+        "B3": {
+          "question": "다음중해상운송인의선적에관한의무에해당하지 않는것은? ①선박회항의무 ②선적준비완료통지의무 ③대박의무 (",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T10:54:36.880Z",
+          "modified_date": "2025-08-28T21:44:42.260570",
+          "original_qcode": "ABAA-40-B3",
+          "parent_info": "20회 관계법령 40번"
+        },
+        "B4": {
+          "question": "①선박회항의무 ②선적준비완료통지의무 ③대박의무 (待泊義務 ) ④감항능력주의의무",
+          "answer": "O",
+          "exists": true,
+          "created_date": "2025-08-28T10:54:36.880Z",
+          "modified_date": "2025-08-28T21:44:42.260582",
+          "original_qcode": "ABAA-40-B4",
+          "parent_info": "20회 관계법령 40번"
+        },
+        "B5": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B6": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B7": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        },
+        "B8": {
+          "question": "",
+          "answer": "",
+          "exists": false,
+          "created_date": null,
+          "modified_date": null
+        }
+      },
+      "metadata": {
+        "total_slots": 8,
+        "filled_slots": 4,
+        "last_updated": "2025-08-28T21:44:42.260602",
+        "master_question": "다음중해상운송인의선적에관한의무에해당하지 않는것은? \n①선박회항의무 \n②선적준비완료통지의무 \n③대박의무 (待泊義務 ) \n④감항능력주의의무",
+        "master_answer": "4",
+        "master_round": "20.0",
+        "master_layer": "관계법령"
+      }
+    }
+  }
+}

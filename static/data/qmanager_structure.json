@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "version": "QManager Structure V1.0",
+    "created_date": "2025-08-28",
+    "description": "QManager 8개 고정 슬롯 시스템 구조 정의",
+    "structure_type": "fixed_8_slots",
+    "qcode_prefix": "B",
+    "max_slots_per_question": 8,
+    "slot_names": ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8"]
+  },
+  "structure_definition": {
+    "question_slots": {
+      "description": "각 기출문제당 8개 고정 슬롯 구조",
+      "slot_structure": {
+        "B1": {
+          "slot_number": 1,
+          "qcode_suffix": "B1",
+          "required": false,
+          "default_state": "empty"
+        },
+        "B2": {
+          "slot_number": 2,
+          "qcode_suffix": "B2",
+          "required": false,
+          "default_state": "empty"
+        },
+        "B3": {
+          "slot_number": 3,
+          "qcode_suffix": "B3",
+          "required": false,
+          "default_state": "empty"
+        },
+        "B4": {
+          "slot_number": 4,
+          "qcode_suffix": "B4",
+          "required": false,
+          "default_state": "empty"
+        },
+        "B5": {
+          "slot_number": 5,
+          "qcode_suffix": "B5",
+          "required": false,
+          "default_state": "empty"
+        },
+        "B6": {
+          "slot_number": 6,
+          "qcode_suffix": "B6",
+          "required": false,
+          "default_state": "empty"
+        },
+        "B7": {
+          "slot_number": 7,
+          "qcode_suffix": "B7",
+          "required": false,
+          "default_state": "empty"
+        },
+        "B8": {
+          "slot_number": 8,
+          "qcode_suffix": "B8",
+          "required": false,
+          "default_state": "empty"
+        }
+      }
+    }
+  },
+  "data_structure": {
+    "description": "실제 데이터 저장 구조",
+    "example": {
+      "ABAA-01": {
+        "source_qcode": "ABAA-01",
+        "slots": {
+          "B1": {
+            "question": "보험업법 제1조에 따라 보험업을 영위하려면 금융위원회의 허가를 받아야 한다.",
+            "answer": "O",
+            "exists": true,
+            "created_date": "2025-08-28T10:00:00",
+            "modified_date": "2025-08-28T10:00:00"
+          },
+          "B2": {
+            "question": "보험계약은 계약자와 보험자 간의 합의로만 성립한다.",
+            "answer": "X",
+            "exists": true,
+            "created_date": "2025-08-28T10:00:00",
+            "modified_date": "2025-08-28T10:00:00"
+          },
+          "B3": {
+            "question": "",
+            "answer": "",
+            "exists": false,
+            "created_date": null,
+            "modified_date": null
+          },
+          "B4": {
+            "question": "",
+            "answer": "",
+            "exists": false,
+            "created_date": null,
+            "modified_date": null
+          },
+          "B5": {
+            "question": "",
+            "answer": "",
+            "exists": false,
+            "created_date": null,
+            "modified_date": null
+          },
+          "B6": {
+            "question": "",
+            "answer": "",
+            "exists": false,
+            "created_date": null,
+            "modified_date": null
+          },
+          "B7": {
+            "question": "",
+            "answer": "",
+            "exists": false,
+            "created_date": null,
+            "modified_date": null
+          },
+          "B8": {
+            "question": "",
+            "answer": "",
+            "exists": false,
+            "created_date": null,
+            "modified_date": null
+          }
+        },
+        "metadata": {
+          "total_slots": 8,
+          "filled_slots": 2,
+          "last_updated": "2025-08-28T10:00:00"
+        }
+      }
+    }
+  },
+  "qcode_generation_rules": {
+    "description": "QCODE 생성 규칙",
+    "rules": [
+      "기출문제 QCODE + B + 슬롯번호",
+      "예: ABAA-01 + B + 1 = ABAA-01-B1",
+      "슬롯번호는 1부터 8까지 순차 할당",
+      "빈 슬롯은 QCODE를 생성하지 않음"
+    ],
+    "examples": [
+      "ABAA-01-B1: ABAA-01 기출문제의 1번 슬롯",
+      "ABAA-01-B2: ABAA-01 기출문제의 2번 슬롯",
+      "ABAA-01-B3: ABAA-01 기출문제의 3번 슬롯"
+    ]
+  },
+  "validation_rules": {
+    "description": "데이터 검증 규칙",
+    "rules": [
+      "각 기출문제는 정확히 8개 슬롯을 가져야 함",
+      "슬롯 번호는 1부터 8까지 순차적이어야 함",
+      "exists가 true인 슬롯은 question과 answer가 필수",
+      "exists가 false인 슬롯은 question과 answer가 빈 문자열",
+      "answer는 'O' 또는 'X'만 허용"
+    ]
+  }
+}
