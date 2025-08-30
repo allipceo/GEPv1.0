@@ -1,0 +1,282 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created_date": "2025-01-17",
+    "total_questions": 25,
+    "subjects": [
+      "보험업법", "상법보험편", "자동차보험", "화재보험", 
+      "해상보험", "재해보험", "보험계리", "보험경영",
+      "보험마케팅", "보험심사", "보험사고처리", "보험계약관리"
+    ],
+    "data_integrity": {
+      "question_field_protected": true,
+      "no_parsing_or_modification": true
+    }
+  },
+  "questions": [
+    {
+      "QCODE": "AB20AA-01",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험업법",
+      "QTYPE": "A",
+      "QUESTION": "보험업법의 내용과 관련하여 타당하지 않은 것은?",
+      "ANSWER": "2",
+      "EROUND": "20.0"
+    },
+    {
+      "QCODE": "AB20AA-02",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험업법",
+      "QTYPE": "A",
+      "QUESTION": "보험업법상 보험업의 정의에 해당하지 않는 것은?",
+      "ANSWER": "1",
+      "EROUND": "20.0"
+    },
+    {
+      "QCODE": "AB20AA-03",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험업법",
+      "QTYPE": "A",
+      "QUESTION": "보험업법상 보험업무의 범위에 관한 설명으로 옳은 것은?",
+      "ANSWER": "3",
+      "EROUND": "20.0"
+    },
+    {
+      "QCODE": "AB21AA-01",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "상법보험편",
+      "QTYPE": "A",
+      "QUESTION": "상법보험편상 보험계약의 성립에 관한 설명으로 옳은 것은?",
+      "ANSWER": "3",
+      "EROUND": "21.0"
+    },
+    {
+      "QCODE": "AB21AA-02",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "상법보험편",
+      "QTYPE": "A",
+      "QUESTION": "상법보험편상 보험계약의 효력에 관한 설명으로 옳은 것은?",
+      "ANSWER": "2",
+      "EROUND": "21.0"
+    },
+    {
+      "QCODE": "AB21AA-03",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "자동차보험",
+      "QTYPE": "A",
+      "QUESTION": "자동차보험의 특징에 관한 설명으로 옳은 것은?",
+      "ANSWER": "2",
+      "EROUND": "21.0"
+    },
+    {
+      "QCODE": "AB21AA-04",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "자동차보험",
+      "QTYPE": "A",
+      "QUESTION": "자동차보험의 보험사고 처리에 관한 설명으로 옳은 것은?",
+      "ANSWER": "4",
+      "EROUND": "21.0"
+    },
+    {
+      "QCODE": "AB22AA-01",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "화재보험",
+      "QTYPE": "A",
+      "QUESTION": "화재보험의 보험사고에 해당하지 않는 것은?",
+      "ANSWER": "4",
+      "EROUND": "22.0"
+    },
+    {
+      "QCODE": "AB22AA-02",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "화재보험",
+      "QTYPE": "A",
+      "QUESTION": "화재보험의 보험금 지급에 관한 설명으로 옳은 것은?",
+      "ANSWER": "1",
+      "EROUND": "22.0"
+    },
+    {
+      "QCODE": "AB22AA-03",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "해상보험",
+      "QTYPE": "A",
+      "QUESTION": "해상보험의 특징에 관한 설명으로 옳은 것은?",
+      "ANSWER": "3",
+      "EROUND": "22.0"
+    },
+    {
+      "QCODE": "AB22AA-04",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "해상보험",
+      "QTYPE": "A",
+      "QUESTION": "해상보험의 보험사고 처리에 관한 설명으로 옳은 것은?",
+      "ANSWER": "2",
+      "EROUND": "22.0"
+    },
+    {
+      "QCODE": "AB23AA-01",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "재해보험",
+      "QTYPE": "A",
+      "QUESTION": "재해보험의 보험사고에 해당하는 것은?",
+      "ANSWER": "1",
+      "EROUND": "23.0"
+    },
+    {
+      "QCODE": "AB23AA-02",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "재해보험",
+      "QTYPE": "A",
+      "QUESTION": "재해보험의 보험금 지급 기준에 관한 설명으로 옳은 것은?",
+      "ANSWER": "4",
+      "EROUND": "23.0"
+    },
+    {
+      "QCODE": "AB23AA-03",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험계리",
+      "QTYPE": "A",
+      "QUESTION": "보험계리의 기본 원리에 관한 설명으로 옳은 것은?",
+      "ANSWER": "3",
+      "EROUND": "23.0"
+    },
+    {
+      "QCODE": "AB23AA-04",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험계리",
+      "QTYPE": "A",
+      "QUESTION": "보험료 산정에 관한 설명으로 옳은 것은?",
+      "ANSWER": "2",
+      "EROUND": "23.0"
+    },
+    {
+      "QCODE": "AB24AA-01",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험경영",
+      "QTYPE": "A",
+      "QUESTION": "보험경영의 기본 원리에 관한 설명으로 옳은 것은?",
+      "ANSWER": "1",
+      "EROUND": "24.0"
+    },
+    {
+      "QCODE": "AB24AA-02",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험경영",
+      "QTYPE": "A",
+      "QUESTION": "보험회사의 경영 전략에 관한 설명으로 옳은 것은?",
+      "ANSWER": "4",
+      "EROUND": "24.0"
+    },
+    {
+      "QCODE": "AB24AA-03",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험마케팅",
+      "QTYPE": "A",
+      "QUESTION": "보험마케팅의 특징에 관한 설명으로 옳은 것은?",
+      "ANSWER": "3",
+      "EROUND": "24.0"
+    },
+    {
+      "QCODE": "AB24AA-04",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험마케팅",
+      "QTYPE": "A",
+      "QUESTION": "보험상품의 마케팅 전략에 관한 설명으로 옳은 것은?",
+      "ANSWER": "2",
+      "EROUND": "24.0"
+    },
+    {
+      "QCODE": "AB25AA-01",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험심사",
+      "QTYPE": "A",
+      "QUESTION": "보험심사의 목적에 관한 설명으로 옳은 것은?",
+      "ANSWER": "1",
+      "EROUND": "25.0"
+    },
+    {
+      "QCODE": "AB25AA-02",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험심사",
+      "QTYPE": "A",
+      "QUESTION": "보험심사의 절차에 관한 설명으로 옳은 것은?",
+      "ANSWER": "4",
+      "EROUND": "25.0"
+    },
+    {
+      "QCODE": "AB25AA-03",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험사고처리",
+      "QTYPE": "A",
+      "QUESTION": "보험사고처리의 기본 원칙에 관한 설명으로 옳은 것은?",
+      "ANSWER": "3",
+      "EROUND": "25.0"
+    },
+    {
+      "QCODE": "AB25AA-04",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험사고처리",
+      "QTYPE": "A",
+      "QUESTION": "보험사고처리의 절차에 관한 설명으로 옳은 것은?",
+      "ANSWER": "2",
+      "EROUND": "25.0"
+    },
+    {
+      "QCODE": "AB25AA-05",
+      "ETITLE": "보험중개사",
+      "ECLASS": "손해보험",
+      "LAYER1": "관계법령",
+      "LAYER2": "보험계약관리",
+      "QTYPE": "A",
+      "QUESTION": "보험계약관리의 중요성에 관한 설명으로 옳은 것은?",
+      "ANSWER": "1",
+      "EROUND": "25.0"
+    }
+  ]
+}

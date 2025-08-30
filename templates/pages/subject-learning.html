@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}과목별 기출문제 풀기 - GEP{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto">
+    <!-- 페이지 헤더 -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">과목별 기출문제 풀기</h1>
+        <p class="text-gray-600">원하는 과목을 선택하여 집중적으로 학습하세요</p>
+    </div>
+
+    <!-- 과목 선택 섹션 -->
+    <div id="subject-selection" class="mb-8">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">과목 선택</h2>
+        <div id="subject-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- 과목 카드들이 동적으로 생성됩니다 -->
+        </div>
+    </div>
+
+    <!-- 문제 풀이 섹션 (초기에는 숨김) -->
+    <div id="question-solving" class="hidden">
+        <!-- 과목 정보 헤더 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 id="selected-subject-title" class="text-2xl font-bold text-gray-900"></h2>
+                    <p id="subject-stats" class="text-gray-600 mt-1"></p>
+                </div>
+                <button id="back-to-subjects" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors">
+                    과목 선택으로 돌아가기
+                </button>
+            </div>
+        </div>
+
+        <!-- 진행률 표시 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">진행률</span>
+                <span id="progress-text" class="text-sm text-gray-500">0 / 0</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- 문제 표시 영역 -->
+        <div id="question-container" class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div id="question-text" class="text-lg text-gray-800 mb-6 leading-relaxed">
+                <!-- 문제 텍스트가 여기에 표시됩니다 -->
+            </div>
+
+            <!-- 선택지 -->
+            <div id="answer-options" class="space-y-3 mb-6">
+                <!-- 선택지들이 동적으로 생성됩니다 -->
+            </div>
+
+            <!-- 답안 제출 버튼 -->
+            <div class="flex justify-between items-center">
+                <button id="prev-question" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    이전 문제
+                </button>
+                <button id="submit-answer" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    답안 제출
+                </button>
+                <button id="next-question" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    다음 문제
+                </button>
+            </div>
+        </div>
+
+        <!-- 결과 표시 영역 -->
+        <div id="result-container" class="bg-white rounded-lg shadow-md p-6 mb-6 hidden">
+            <div id="result-message" class="text-lg font-semibold mb-4"></div>
+            <div id="correct-answer" class="text-gray-700 mb-4"></div>
+            <div id="explanation" class="text-gray-600 mb-4"></div>
+            <button id="continue-question" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+                계속하기
+            </button>
+        </div>
+    </div>
+
+    <!-- 로딩 표시 -->
+    <div id="loading" class="hidden">
+        <div class="flex justify-center items-center py-12">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            <span class="ml-3 text-gray-600">로딩 중...</span>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- 3단계 과목별 기출문제 풀기 기능 스크립트 -->
+<script src="{{ url_for('static', filename='js/subject-selector.js') }}"></script>
+<script src="{{ url_for('static', filename='js/subject-filter.js') }}"></script>
+<script src="{{ url_for('static', filename='js/question-solver.js') }}"></script>
+<script src="{{ url_for('static', filename='js/subject-learning.js') }}"></script>
+{% endblock %}
+
